@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroOrbs, HeroNetwork } from "@/components/AnimatedVisuals";
-import dgtLogo from "@/assets/dgt-logo.png";
+import dgtLogo from "@/assets/dgt-logo-new.png";
 
 const Navbar = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 bg-navy border-b border-white/10 shadow-lg">
-    <div className="container mx-auto flex items-center justify-between py-3 px-6">
-      <div className="flex items-center gap-3">
-        <img src={dgtLogo} alt="DGT Partner" className="h-8 rounded" />
+    <div className="container mx-auto flex items-center justify-between h-20 px-6">
+      <div className="flex items-center gap-3 pl-2">
+        <img src={dgtLogo} alt="DGT Partner" className="h-14 w-auto object-contain" />
       </div>
       <div className="hidden md:flex items-center gap-8 text-sm text-white/70">
         <a href="#framework" className="hover:text-white transition-colors">How We Help</a>
@@ -16,7 +16,7 @@ const Navbar = () => (
         <a href="#process" className="hover:text-white transition-colors">Case Studies</a>
         <a href="#results" className="hover:text-white transition-colors">About</a>
       </div>
-      <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold rounded-full px-5 text-xs">
+      <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold rounded-full px-5 text-xs shadow-lg shadow-accent/20">
         Claim Your Free 30-Minute Strategy Session
       </Button>
     </div>
@@ -24,7 +24,7 @@ const Navbar = () => (
 );
 
 const HeroSection = () => (
-  <section className="relative min-h-[90vh] flex items-center justify-center bg-navy bg-grid pt-20 overflow-hidden">
+  <section className="relative min-h-[90vh] flex items-center justify-center bg-navy bg-grid pt-24 overflow-hidden">
     <HeroOrbs />
     <HeroNetwork />
     <div className="container mx-auto px-6 text-center max-w-4xl relative z-10">

@@ -24,7 +24,7 @@
     --muted: 210 20% 94%;
     --muted-foreground: 215 15% 46%;
 
-    --accent: 45 100% 55%;
+    --accent: 180 100% 50%;
     --accent-foreground: 215 30% 14%;
 
     --destructive: 0 84.2% 60.2%;
@@ -38,7 +38,7 @@
 
     --glow-primary: 0 0 30px hsl(210 100% 45% / 0.15);
     --glow-strong: 0 0 60px hsl(210 100% 45% / 0.2);
-    --glow-accent: 0 0 30px hsl(45 100% 55% / 0.2);
+    --glow-accent: 0 0 30px hsl(180 100% 50% / 0.3);
 
     --navy: 215 30% 14%;
     --cyan: 190 100% 45%;
