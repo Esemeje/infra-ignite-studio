@@ -5,20 +5,19 @@ import { HeroOrbs, HeroNetwork } from "@/components/AnimatedVisuals";
 import dgtLogo from "@/assets/dgt-logo.jpg";
 
 const Navbar = () => (
-  <nav className="fixed top-0 left-0 right-0 z-50 bg-navy border-b border-border/10">
+  <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border shadow-sm">
     <div className="container mx-auto flex items-center justify-between py-3 px-6">
       <div className="flex items-center gap-3">
         <img src={dgtLogo} alt="DGT Partner" className="h-8 rounded" />
-        <span className="text-sm font-medium text-white/70 hidden sm:block">Digital Architecture</span>
       </div>
-      <div className="hidden md:flex items-center gap-8 text-sm text-white/70">
-        <a href="#framework" className="hover:text-white transition-colors">How We Help</a>
-        <a href="#framework" className="hover:text-white transition-colors">The Stack</a>
-        <a href="#process" className="hover:text-white transition-colors">Case Studies</a>
-        <a href="#results" className="hover:text-white transition-colors">About</a>
+      <div className="hidden md:flex items-center gap-8 text-sm text-foreground/70">
+        <a href="#framework" className="hover:text-foreground transition-colors">How We Help</a>
+        <a href="#framework" className="hover:text-foreground transition-colors">The Stack</a>
+        <a href="#process" className="hover:text-foreground transition-colors">Case Studies</a>
+        <a href="#results" className="hover:text-foreground transition-colors">About</a>
       </div>
       <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold rounded-full px-5 text-xs">
-        Schedule a Deep Dive
+        Claim Your Free 30-Minute Strategy Session
       </Button>
     </div>
   </nav>
