@@ -9,7 +9,7 @@ const steps = [
 ];
 
 const ProcessSection = () => (
-  <section id="process" className="py-32 relative bg-grid">
+  <section id="process" className="py-32 relative bg-secondary/50 bg-grid">
     <div className="container mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -27,7 +27,6 @@ const ProcessSection = () => (
       </motion.div>
 
       <div className="max-w-4xl mx-auto relative">
-        {/* Vertical line */}
         <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-px" />
 
         {steps.map((step, i) => (
@@ -41,12 +40,11 @@ const ProcessSection = () => (
               i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
           >
-            {/* Dot */}
             <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary animate-pulse-glow z-10" />
 
             <div className={`ml-14 md:ml-0 md:w-1/2 ${i % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"}`}>
               <div className={`inline-flex items-center gap-3 mb-3 ${i % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
-                <div className="rounded-lg bg-secondary p-2.5">
+                <div className="rounded-lg bg-card border border-border p-2.5 shadow-sm">
                   <step.icon className="h-5 w-5 text-primary" />
                 </div>
                 <span className="text-primary text-xs font-semibold tracking-[0.15em] uppercase">{step.phase}</span>

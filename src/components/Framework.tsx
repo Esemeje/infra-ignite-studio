@@ -5,31 +5,27 @@ import { FrameworkVisuals } from "@/components/AnimatedVisuals";
 const layers = [
   {
     icon: Globe,
-    title: "Digital Presence",
-    subtitle: "PRESENCE LAYER",
-    description: "Web, SEO, and high-conversion funnels. Optimizing customer acquisition and brand clarity at every touchpoint.",
-    color: "190 100% 50%",
+    title: "Presence Layer",
+    subtitle: "DIGITAL PRESENCE",
+    description: "Optimizing customer acquisition funnels and brand clarity. Web, SEO, and high-conversion landing pages.",
   },
   {
     icon: Workflow,
-    title: "Workflow Automation",
-    subtitle: "AUTOMATION LAYER",
-    description: "Streamlining operations to eliminate bottlenecks. Connecting platforms and automating repetitive processes.",
-    color: "170 90% 55%",
+    title: "Automation Layer",
+    subtitle: "WORKFLOW AUTOMATION",
+    description: "Streamlining repetitive processes and connecting platforms. Eliminating bottlenecks at every stage.",
   },
   {
     icon: Database,
-    title: "Data Infrastructure",
-    subtitle: "DATA LAYER",
-    description: "Ensuring data quality, integrity, and accessibility. Centralizing metrics and providing unified insights.",
-    color: "270 80% 65%",
+    title: "Data Layer",
+    subtitle: "DATA INFRASTRUCTURE",
+    description: "Centralizing metrics and providing unified insights. Ensuring data quality, integrity, and accessibility.",
   },
   {
     icon: Brain,
-    title: "AI-Enabled Operations",
-    subtitle: "AI OPERATIONS",
-    description: "Implementing AI to scale human output. Intelligent workflows and decision engines that learn and adapt.",
-    color: "190 100% 50%",
+    title: "AI Operations",
+    subtitle: "AI-ENABLED OPS",
+    description: "Implementing intelligent workflows and decision engines. Scaling human output with AI that learns and adapts.",
   },
 ];
 
@@ -60,17 +56,12 @@ const FrameworkSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="group relative rounded-2xl card-shine border border-border p-8 hover:border-glow transition-all duration-500 overflow-hidden"
+            className="group relative rounded-2xl bg-card border border-border p-8 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 overflow-hidden"
           >
-            {/* Subtle gradient accent */}
-            <div
-              className="absolute top-0 right-0 w-32 h-32 rounded-full opacity-[0.06] blur-2xl group-hover:opacity-[0.12] transition-opacity"
-              style={{ background: `radial-gradient(circle, hsl(${layer.color}), transparent)` }}
-            />
-            <p className="text-primary text-xs font-semibold tracking-[0.15em] uppercase mb-4 relative z-10">
+            <p className="text-primary text-xs font-semibold tracking-[0.15em] uppercase mb-4">
               {layer.subtitle}
             </p>
-            <div className="flex items-start gap-4 relative z-10">
+            <div className="flex items-start gap-4">
               <div className="rounded-xl bg-secondary p-3 shrink-0 group-hover:bg-primary/10 transition-colors">
                 <layer.icon className="h-6 w-6 text-primary" />
               </div>
