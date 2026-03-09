@@ -1,5 +1,5 @@
 import { Navbar, HeroSection } from "@/components/Hero";
-import { PartnerLogos, ResultsSection, CTASection, Footer } from "@/components/Results";
+import { ResultsSection, CTASection, Footer } from "@/components/Results";
 import FrameworkSection from "@/components/Framework";
 import ProcessSection from "@/components/Process";
 
