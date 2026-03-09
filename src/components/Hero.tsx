@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroOrbs, HeroNetwork } from "@/components/AnimatedVisuals";
-import dgtLogo from "@/assets/dgt-logo.jpg";
+import dgtLogo from "@/assets/dgt-logo.png";
 
 const Navbar = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 bg-navy border-b border-white/10 shadow-lg">
