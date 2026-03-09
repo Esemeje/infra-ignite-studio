@@ -32,9 +32,9 @@ const ResultsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="text-center p-6"
+            className="text-center p-8 rounded-2xl bg-card border border-border"
           >
-            <p className="text-4xl md:text-5xl font-bold text-gradient mb-2">{stat.value}</p>
+            <p className="text-4xl md:text-5xl font-bold text-gradient mb-3">{stat.value}</p>
             <p className="text-muted-foreground text-sm">{stat.label}</p>
           </motion.div>
         ))}
@@ -51,7 +51,7 @@ const CTASection = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="relative rounded-2xl border-glow-strong bg-card p-12 md:p-20 text-center max-w-4xl mx-auto overflow-hidden"
+        className="relative rounded-3xl border-glow-strong bg-card p-12 md:p-20 text-center max-w-4xl mx-auto overflow-hidden"
       >
         <div className="absolute inset-0 bg-radial-hero pointer-events-none" />
         <div className="relative z-10">
@@ -61,7 +61,7 @@ const CTASection = () => (
           <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-10 leading-relaxed">
             Get a comprehensive audit of your current infrastructure. We'll identify the gaps holding you back and map your path to scale.
           </p>
-          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-10 py-6 text-base group">
+          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-10 py-6 text-base rounded-full group shadow-lg shadow-primary/25">
             Audit Your Infrastructure
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
