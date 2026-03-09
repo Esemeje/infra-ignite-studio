@@ -5,7 +5,7 @@ import { HeroOrbs, HeroNetwork } from "@/components/AnimatedVisuals";
 import dgtLogo from "@/assets/dgt-logo.jpg";
 
 const Navbar = () => (
-  <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border shadow-sm">
+  <nav className="fixed top-0 left-0 right-0 z-50 bg-navy border-b border-white/10 shadow-lg">
     <div className="container mx-auto flex items-center justify-between py-3 px-6">
       <div className="flex items-center gap-3">
         <img src={dgtLogo} alt="DGT Partner" className="h-8 rounded" />
