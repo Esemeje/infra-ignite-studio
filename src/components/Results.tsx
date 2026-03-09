@@ -79,9 +79,9 @@ const Footer = () => (
         © 2026 DGT Partner. Digital Infrastructure for Growth.
       </span>
       <div className="flex items-center gap-6 text-sm text-muted-foreground">
+        <a href="mailto:support@dgtpartner.com" className="hover:text-foreground transition-colors">support@dgtpartner.com</a>
         <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
         <a href="#" className="hover:text-foreground transition-colors">Terms</a>
-        <a href="#" className="hover:text-foreground transition-colors">Contact</a>
       </div>
     </div>
   </footer>
