@@ -2,18 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const PartnerLogos = () => (
-  <section className="py-6 bg-accent">
-    <div className="container mx-auto px-6">
-      <div className="flex items-center justify-center gap-12 flex-wrap">
-        <span className="text-accent-foreground font-bold text-sm tracking-wide uppercase">Real Results:</span>
-        {["Shopify Partner", "Google Partner", "Zoho Partner", "Meta Partner", "HubSpot Partner"].map((partner) => (
-          <span key={partner} className="text-accent-foreground/70 text-sm font-semibold">{partner}</span>
-        ))}
-      </div>
-    </div>
-  </section>
-);
 
 const ResultsSection = () => (
   <section id="results" className="py-32">
