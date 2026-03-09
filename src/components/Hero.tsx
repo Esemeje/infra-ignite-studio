@@ -28,15 +28,6 @@ const HeroSection = () => (
     <HeroOrbs />
     <HeroNetwork />
     <div className="container mx-auto px-6 text-center max-w-4xl relative z-10">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 mb-8"
-      >
-        <span className="w-2 h-2 rounded-full bg-accent animate-pulse-glow" />
-        <span className="text-white/80 text-xs font-semibold tracking-wide uppercase">Digital Architecture for Scaling</span>
-      </motion.div>
       <motion.h1
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
