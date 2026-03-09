@@ -2,13 +2,17 @@ import { Navbar, HeroSection } from "@/components/Hero";
 import { ResultsSection, CTASection, Footer } from "@/components/Results";
 import FrameworkSection from "@/components/Framework";
 import ProcessSection from "@/components/Process";
+import ArchitectureDiagram from "@/components/ArchitectureDiagram";
+import TechnologyStack from "@/components/TechnologyStack";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
+      <ArchitectureDiagram />
       <FrameworkSection />
+      <TechnologyStack />
       <ProcessSection />
       <ResultsSection />
       <CTASection />

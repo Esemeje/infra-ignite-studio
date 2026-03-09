@@ -11,10 +11,10 @@ const Navbar = () => (
         <img src={dgtLogo} alt="DGT Partner" className="h-14 w-auto object-contain" />
       </div>
       <div className="hidden md:flex items-center gap-8 text-sm text-white/70">
-        <a href="#framework" className="hover:text-white transition-colors">How We Help</a>
+        <a href="#process" className="hover:text-white transition-colors">How It Works</a>
         <a href="#framework" className="hover:text-white transition-colors">The Stack</a>
-        <a href="#process" className="hover:text-white transition-colors">Case Studies</a>
-        <a href="#results" className="hover:text-white transition-colors">About</a>
+        <a href="#results" className="hover:text-white transition-colors">Results</a>
+        <a href="#about" className="hover:text-white transition-colors">About</a>
       </div>
       <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold rounded-full px-5 text-xs shadow-lg shadow-accent/20">
         Claim Your Free 30-Minute Strategy Session
@@ -43,8 +43,7 @@ const HeroSection = () => (
         transition={{ duration: 0.6, delay: 0.25 }}
         className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
       >
-        We build, automate, and optimize the core infrastructure your company needs
-        to operate with modern efficiency.<br />From foundation to AI operations.
+        We design the systems that power modern companies — from lead generation to automation, data, and AI operations.
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -56,9 +55,11 @@ const HeroSection = () => (
           Map Your Future State
           <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
         </Button>
-        <Button size="lg" variant="outline" className="border-accent text-accent bg-accent/10 hover:bg-accent/20 font-medium px-8 py-6 text-base rounded-full">
-          Learn More
-        </Button>
+        <a href="#framework">
+          <Button size="lg" variant="outline" className="border-accent text-accent bg-accent/10 hover:bg-accent/20 font-medium px-8 py-6 text-base rounded-full">
+            Learn More
+          </Button>
+        </a>
       </motion.div>
     </div>
   </section>

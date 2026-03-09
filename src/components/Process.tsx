@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Search, Settings, Layers, Rocket } from "lucide-react";
 
 const steps = [
-  { icon: Search, phase: "Phase 1", title: "Audit & Discovery", desc: "Map your current systems, bottlenecks, and growth blockers." },
+  { icon: Search, phase: "Phase 1", title: "Infrastructure Audit", desc: "Map your current systems, bottlenecks, and growth blockers." },
   { icon: Settings, phase: "Phase 2", title: "Architecture Design", desc: "Blueprint a scalable infrastructure tailored to your growth plan." },
   { icon: Layers, phase: "Phase 3", title: "Build & Integrate", desc: "Implement each layer, connecting presence, automation, data, and AI." },
   { icon: Rocket, phase: "Phase 4", title: "Scale & Optimize", desc: "Monitor, iterate, and scale—from manual chaos to automated growth." },

@@ -14,18 +14,19 @@ const ResultsSection = () => (
         className="text-center mb-16"
       >
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-          Results, Not Promises.
+          Operational Results
         </h2>
         <p className="text-muted-foreground text-lg max-w-xl mx-auto">
           Our infrastructure delivers measurable outcomes for growth-stage businesses.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-20">
         {[
-          { value: "2x", label: "Average revenue growth in 12 months" },
-          { value: "60%", label: "Reduction in manual operational overhead" },
-          { value: "40+", label: "Growth-stage companies scaled" },
+          { value: "2–5×", label: "Increase in qualified inbound leads" },
+          { value: "10–20hrs", label: "Manual work eliminated per week" },
+          { value: "100%", label: "Visibility into pipeline and revenue metrics" },
+          { value: "2–4×", label: "Increase in operational output per employee" },
         ].map((stat, i) => (
           <motion.div
             key={stat.label}
@@ -35,7 +36,7 @@ const ResultsSection = () => (
             transition={{ duration: 0.5, delay: i * 0.1 }}
             className="text-center p-8 rounded-2xl bg-card border border-border shadow-sm"
           >
-            <p className="text-4xl md:text-5xl font-bold text-gradient mb-3">{stat.value}</p>
+            <p className="text-3xl md:text-4xl font-bold text-gradient mb-3">{stat.value}</p>
             <p className="text-muted-foreground text-sm">{stat.label}</p>
           </motion.div>
         ))}
@@ -63,7 +64,7 @@ const CTASection = () => (
             Get a comprehensive audit of your current infrastructure. We'll identify the gaps holding you back and map your path to scale.
           </p>
           <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold px-10 py-6 text-base rounded-full group shadow-lg shadow-accent/25">
-            Audit Your Infrastructure
+            Start Your Infrastructure Audit
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
@@ -73,7 +74,7 @@ const CTASection = () => (
 );
 
 const Footer = () => (
-  <footer className="border-t border-border py-12">
+  <footer id="about" className="border-t border-border py-12">
     <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
       <span className="text-sm text-muted-foreground">
         © 2026 DGT Partner. Digital Infrastructure for Growth.
