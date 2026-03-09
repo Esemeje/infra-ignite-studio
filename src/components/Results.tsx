@@ -2,18 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const PartnerLogos = () => (
-  <section className="py-6 bg-accent">
-    <div className="container mx-auto px-6">
-      <div className="flex items-center justify-center gap-12 flex-wrap">
-        <span className="text-accent-foreground font-bold text-sm tracking-wide uppercase">Real Results:</span>
-        {["Shopify Partner", "Google Partner", "Zoho Partner", "Meta Partner", "HubSpot Partner"].map((partner) => (
-          <span key={partner} className="text-accent-foreground/70 text-sm font-semibold">{partner}</span>
-        ))}
-      </div>
-    </div>
-  </section>
-);
 
 const ResultsSection = () => (
   <section id="results" className="py-32">
@@ -91,12 +79,12 @@ const Footer = () => (
         © 2026 DGT Partner. Digital Infrastructure for Growth.
       </span>
       <div className="flex items-center gap-6 text-sm text-muted-foreground">
+        <a href="mailto:support@dgtpartner.com" className="hover:text-foreground transition-colors">support@dgtpartner.com</a>
         <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
         <a href="#" className="hover:text-foreground transition-colors">Terms</a>
-        <a href="#" className="hover:text-foreground transition-colors">Contact</a>
       </div>
     </div>
   </footer>
 );
 
-export { PartnerLogos, ResultsSection, CTASection, Footer };
+export { ResultsSection, CTASection, Footer };
