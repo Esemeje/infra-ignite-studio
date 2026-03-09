@@ -56,7 +56,7 @@ const HeroSection = () => (
           Map Your Future State
           <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
         </Button>
-        <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 font-medium px-8 py-6 text-base rounded-full">
+        <Button size="lg" variant="outline" className="border-accent text-accent bg-accent/10 hover:bg-accent/20 font-medium px-8 py-6 text-base rounded-full">
           Learn More
         </Button>
       </motion.div>

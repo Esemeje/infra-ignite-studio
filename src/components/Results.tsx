@@ -87,4 +87,4 @@ const Footer = () => (
   </footer>
 );
 
-export { PartnerLogos, ResultsSection, CTASection, Footer };
+export { ResultsSection, CTASection, Footer };

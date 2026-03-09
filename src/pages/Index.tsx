@@ -1,5 +1,5 @@
 import { Navbar, HeroSection } from "@/components/Hero";
-import { ResultsSection, CTASection, Footer } from "@/components/Results";
+import { , CTASection, Footer } from "@/components/Results";
 import FrameworkSection from "@/components/Framework";
 import ProcessSection from "@/components/Process";
 
@@ -8,8 +8,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <PartnerLogos />
-      <FrameworkSection />
+      <PartnerLogos orkSection />
       <ProcessSection />
       <ResultsSection />
       <CTASection />
