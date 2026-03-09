@@ -44,7 +44,7 @@ const HeroSection = () => (
         className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
       >
         We build, automate, and optimize the core infrastructure your company needs
-        to operate with modern efficiency. From foundation to AI operations.
+        to operate with modern efficiency.<br />From foundation to AI operations.
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
