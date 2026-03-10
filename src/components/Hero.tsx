@@ -4,20 +4,31 @@ import { Button } from "@/components/ui/button";
 import { HeroOrbs, HeroNetwork } from "@/components/AnimatedVisuals";
 import dgtLogo from "@/assets/dgt-logo-new.png";
 
+const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+  <a 
+    href={href} 
+    className="relative text-white/70 hover:text-white font-medium transition-all duration-200 ease-out after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all after:duration-200 hover:after:w-full"
+  >
+    {children}
+  </a>
+);
+
 const Navbar = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 bg-navy border-b border-white/10 shadow-lg">
-    <div className="container mx-auto flex items-center justify-between h-20 px-6">
+    <div className="container mx-auto flex items-center justify-between h-[68px] px-6">
       <div className="flex items-center gap-3 pl-2">
-        <img src={dgtLogo} alt="DGT Partner" className="h-14 w-auto object-contain" />
+        <a href="/">
+          <img src={dgtLogo} alt="DGT Partner" className="h-12 w-auto object-contain" />
+        </a>
       </div>
-      <div className="hidden md:flex items-center gap-8 text-sm text-white/70">
-        <a href="#process" className="hover:text-white transition-colors">How It Works</a>
-        <a href="#framework" className="hover:text-white transition-colors">The Stack</a>
-        <a href="#results" className="hover:text-white transition-colors">Results</a>
-        <a href="#about" className="hover:text-white transition-colors">About</a>
+      <div className="hidden md:flex items-center gap-10 text-base">
+        <NavLink href="#process">How It Works</NavLink>
+        <NavLink href="#framework">The Stack</NavLink>
+        <NavLink href="#results">Results</NavLink>
+        <NavLink href="/about">About</NavLink>
       </div>
-      <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold rounded-full px-5 text-xs shadow-lg shadow-accent/20">
-        Claim Your Free 30-Minute Strategy Session
+      <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/30 font-bold rounded-full px-6 py-2.5 text-sm shadow-md shadow-accent/20 transition-all duration-200">
+        Start Your Audit
       </Button>
     </div>
   </nav>
