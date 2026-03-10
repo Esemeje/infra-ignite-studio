@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Globe, Workflow, Database, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/Hero";
 import { Footer } from "@/components/Results";
+import AuditModal from "@/components/AuditModal";
 
 const AboutPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -247,7 +251,11 @@ const AboutPage = () => {
             <p className="text-muted-foreground text-xl leading-relaxed mb-10">
               If your company is growing but your systems are struggling to keep up, DGT Partner can help design the infrastructure behind the next stage of growth.
             </p>
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/30 font-bold px-10 py-6 text-base rounded-full group shadow-md shadow-accent/20 transition-all duration-200">
+            <Button 
+              size="lg" 
+              onClick={() => setIsModalOpen(true)}
+              className="bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/30 font-bold px-10 py-6 text-base rounded-full group shadow-md shadow-accent/20 transition-all duration-200"
+            >
               Start Your Infrastructure Audit
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
@@ -256,6 +264,7 @@ const AboutPage = () => {
       </section>
 
       <Footer />
+      <AuditModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };
