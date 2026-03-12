@@ -38,7 +38,7 @@ const Navbar = () => {
             onClick={() => setIsModalOpen(true)}
             className="bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/30 font-bold rounded-full px-6 py-2.5 text-sm shadow-md shadow-accent/20 transition-all duration-200"
           >
-            Start Your FREE 30-Minute Strategy Session
+            Book an AI Opportunity Audit
           </Button>
         </div>
       </nav>
@@ -62,8 +62,8 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-8 text-white"
           >
-            The Digital Architecture<br />
-            for Scaling. <span className="text-gradient">Guaranteed.</span>
+            AI Infrastructure for<br />
+            <span className="text-gradient">Growing Companies.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -71,7 +71,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            We design the systems that power modern companies — from lead generation to automation, data, and AI operations.
+            We help companies deploy AI into real operations by connecting automation, data, and intelligent decision systems.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -84,7 +84,7 @@ const HeroSection = () => {
               onClick={() => setIsModalOpen(true)}
               className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold px-8 py-6 text-base rounded-full group shadow-lg shadow-accent/20"
             >
-              Map Your Future State
+              Book an AI Opportunity Audit
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <a href="/about">

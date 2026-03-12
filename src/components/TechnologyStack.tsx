@@ -34,13 +34,13 @@ const TechnologyStack = () => (
         className="text-center mb-16"
       >
         <p className="text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4">
-          Technology Stack
+          AI & Data Infrastructure Stack
         </p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
           Built With Industry-Leading Tools
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          We use best-in-class platforms across every layer to build infrastructure that scales.
+          We use best-in-class platforms across every layer to build AI infrastructure that scales.
         </p>
       </motion.div>
 
