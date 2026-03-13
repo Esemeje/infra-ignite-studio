@@ -6,6 +6,18 @@ import { HeroOrbs, HeroNetwork } from "@/components/AnimatedVisuals";
 import AuditModal from "@/components/AuditModal";
 import dgtLogo from "@/assets/dgt-logo-new.png";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
+const trackCTAClick = (buttonName: string) => {
+  if (window.gtag) {
+    window.gtag('event', 'cta_click', { 'button_name': buttonName });
+  }
+};
+
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a 
     href={href} 
@@ -36,7 +48,10 @@ const Navbar = () => {
           </div>
           <Button 
             size="sm" 
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => {
+              trackCTAClick('Navbar_AI_Audit');
+              setIsModalOpen(true);
+            }}
             className="bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/30 font-bold rounded-full px-6 py-2.5 text-sm shadow-md shadow-accent/20 transition-all duration-200"
           >
             Book an AI Opportunity Audit
@@ -82,7 +97,10 @@ const HeroSection = () => {
           >
             <Button 
               size="lg" 
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => {
+                trackCTAClick('Hero_AI_Audit');
+                setIsModalOpen(true);
+              }}
               className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold px-8 py-6 text-base rounded-full group shadow-lg shadow-accent/20"
             >
               Book an AI Opportunity Audit

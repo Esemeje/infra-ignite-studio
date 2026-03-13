@@ -3,6 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 interface AuditModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -32,6 +38,10 @@ const AuditModal = ({ isOpen, onClose }: AuditModalProps) => {
     if (isOpen) {
       document.addEventListener("keydown", handleEscape);
       document.body.style.overflow = "hidden";
+      // Track modal open
+      if (window.gtag) {
+        window.gtag('event', 'modal_open', { 'modal_name': 'AI_Audit_Form' });
+      }
     }
     return () => {
       document.removeEventListener("keydown", handleEscape);
@@ -58,6 +68,14 @@ const AuditModal = ({ isOpen, onClose }: AuditModalProps) => {
     setIsSubmitting(true);
     setError("");
 
+    // Track form submission attempt
+    if (window.gtag) {
+      window.gtag('event', 'form_submit', { 
+        'form_name': 'AI_Audit_Request',
+        'revenue_range': formData.revenue 
+      });
+    }
+
     try {
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
@@ -77,6 +95,13 @@ const AuditModal = ({ isOpen, onClose }: AuditModalProps) => {
       });
 
       if (response.ok) {
+        // Track successful submission
+        if (window.gtag) {
+          window.gtag('event', 'form_success', { 
+            'form_name': 'AI_Audit_Request',
+            'revenue_range': formData.revenue 
+          });
+        }
         setIsSuccess(true);
         setFormData({
           fullName: "",
@@ -91,6 +116,10 @@ const AuditModal = ({ isOpen, onClose }: AuditModalProps) => {
         throw new Error("Failed to submit");
       }
     } catch (err) {
+      // Track form error
+      if (window.gtag) {
+        window.gtag('event', 'form_error', { 'form_name': 'AI_Audit_Request' });
+      }
       setError("Something went wrong. Please try again or email us directly at eomole@dgtpartner.com");
     } finally {
       setIsSubmitting(false);
