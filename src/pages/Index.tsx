@@ -1,20 +1,27 @@
 import { Navbar, HeroSection } from "@/components/Hero";
-import { ResultsSection, CTASection, Footer } from "@/components/Results";
-import FrameworkSection from "@/components/Framework";
+import { CTASection, Footer } from "@/components/Results";
+import ProblemSection from "@/components/ProblemSection";
+import WhatWeDo from "@/components/WhatWeDo";
+import SystemCapabilities from "@/components/SystemCapabilities";
 import ProcessSection from "@/components/Process";
-import ArchitectureDiagram from "@/components/ArchitectureDiagram";
+import ROISection from "@/components/ROISection";
+import Industries from "@/components/Industries";
 import TechnologyStack from "@/components/TechnologyStack";
+import WhyDGT from "@/components/WhyDGT";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <ArchitectureDiagram />
-      <FrameworkSection />
-      <TechnologyStack />
+      <ProblemSection />
+      <WhatWeDo />
+      <SystemCapabilities />
       <ProcessSection />
-      <ResultsSection />
+      <ROISection />
+      <Industries />
+      <TechnologyStack />
+      <WhyDGT />
       <CTASection />
       <Footer />
     </div>

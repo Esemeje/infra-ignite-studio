@@ -4,49 +4,6 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AuditModal from "@/components/AuditModal";
 
-
-const ResultsSection = () => (
-  <section id="results" className="py-32">
-    <div className="container mx-auto px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-16"
-      >
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-          Operational Results
-        </h2>
-        <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-          Our infrastructure delivers measurable outcomes for growth-stage businesses.
-        </p>
-      </motion.div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-20">
-        {[
-          { value: "2–5×", label: "Increase in qualified inbound leads" },
-          { value: "10–20hrs", label: "Manual work eliminated per week" },
-          { value: "100%", label: "Visibility into pipeline and revenue metrics" },
-          { value: "2–4×", label: "Increase in operational output per employee" },
-        ].map((stat, i) => (
-          <motion.div
-            key={stat.label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="text-center p-8 rounded-2xl bg-card border border-border shadow-sm"
-          >
-            <p className="text-3xl md:text-4xl font-bold text-gradient mb-3">{stat.value}</p>
-            <p className="text-muted-foreground text-sm">{stat.label}</p>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
 const CTASection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -101,4 +58,4 @@ const Footer = () => (
   </footer>
 );
 
-export { ResultsSection, CTASection, Footer };
+export { CTASection, Footer };

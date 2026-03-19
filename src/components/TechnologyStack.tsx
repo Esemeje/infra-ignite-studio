@@ -2,24 +2,24 @@ import { motion } from "framer-motion";
 
 const stacks = [
   {
-    layer: "Presence",
-    subtitle: "Digital Presence",
-    tools: ["Next.js", "Webflow", "Shopify", "WordPress", "Framer", "Vercel"],
+    layer: "CRM & Operations",
+    subtitle: "Client Management",
+    tools: ["Zoho CRM", "Zoho One", "HubSpot", "GoHighLevel", "Pipedrive"],
   },
   {
     layer: "Automation",
-    subtitle: "Workflow Automation",
-    tools: ["Zapier", "Make", "Airtable", "n8n", "Notion", "Slack"],
+    subtitle: "Workflow & Integration",
+    tools: ["Zapier", "Make (Integromat)", "Twilio", "ManyChat", "Calendly"],
   },
   {
-    layer: "Data",
-    subtitle: "Data Intelligence",
-    tools: ["BigQuery", "PostgreSQL", "Looker", "Metabase", "Snowflake", "dbt"],
+    layer: "Data & Analytics",
+    subtitle: "Intelligence",
+    tools: ["BigQuery", "Python", "Industry-Specific Platforms"],
   },
   {
     layer: "AI",
-    subtitle: "AI Operations",
-    tools: ["OpenAI", "LangChain", "Pinecone", "Claude", "Hugging Face", "Weaviate"],
+    subtitle: "Intelligent Operations",
+    tools: ["Zoho Zia (AI)", "AI Call Handling", "AI Document Scanning"],
   },
 ];
 
@@ -34,13 +34,13 @@ const TechnologyStack = () => (
         className="text-center mb-16"
       >
         <p className="text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4">
-          AI & Data Infrastructure Stack
+          Technology We Work With
         </p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-          Built With Industry-Leading Tools
+          Tools That <span className="text-gradient">Actually Work Together</span>
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          We use best-in-class platforms across every layer to build AI infrastructure that scales.
+          Every platform in our stack is used by top performers in your industry. We verify every connection before we propose it.
         </p>
       </motion.div>
 

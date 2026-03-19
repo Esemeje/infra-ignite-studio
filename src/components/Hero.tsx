@@ -28,9 +28,10 @@ const Navbar = () => {
             </a>
           </div>
           <div className="hidden md:flex items-center gap-10 text-base">
+            <NavLink href="#problem">The Problem</NavLink>
+            <NavLink href="#system">The System</NavLink>
             <NavLink href="#process">How It Works</NavLink>
-            <NavLink href="#framework">The Stack</NavLink>
-            <NavLink href="#results">Results</NavLink>
+            <NavLink href="#why-dgt">Why Us</NavLink>
             <NavLink href="/about">About</NavLink>
           </div>
           <Button 

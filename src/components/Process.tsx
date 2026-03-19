@@ -1,11 +1,38 @@
 import { motion } from "framer-motion";
-import { Search, Settings, Layers, Rocket } from "lucide-react";
+import { Search, Map, Wrench, GraduationCap, HeartHandshake } from "lucide-react";
 
 const steps = [
-  { icon: Search, phase: "Phase 1", title: "Infrastructure Audit", desc: "Map your current systems, bottlenecks, and growth blockers." },
-  { icon: Settings, phase: "Phase 2", title: "Architecture Design", desc: "Blueprint a scalable infrastructure tailored to your growth plan." },
-  { icon: Layers, phase: "Phase 3", title: "Build & Integrate", desc: "Implement each layer, connecting presence, automation, data, and AI." },
-  { icon: Rocket, phase: "Phase 4", title: "Scale & Optimize", desc: "Monitor, iterate, and scale—from manual chaos to automated growth." },
+  {
+    icon: Search,
+    phase: "Step 1",
+    title: "Discovery Call",
+    desc: "We sit down and map out your current tools, pain points, and what's driving revenue. We find exactly where money and clients are slipping through the cracks.",
+  },
+  {
+    icon: Map,
+    phase: "Step 2",
+    title: "Your Custom Roadmap",
+    desc: "You get a clear plan showing every tool, every connection, and every automation we'll build — with honest pricing and a straightforward case for why it's worth it.",
+  },
+  {
+    icon: Wrench,
+    phase: "Step 3",
+    title: "Build & Connect",
+    desc: "We set up your CRM, connect it to your existing tools, bring in your data, and wire up the automations. Your day-to-day workflow stays the same — everything new works around it.",
+  },
+  {
+    icon: GraduationCap,
+    phase: "Step 4",
+    title: "Training & Go-Live",
+    desc: "We walk you through the whole system until it feels second nature. Then we go live and monitor everything for 30 days to catch anything we missed and fine-tune.",
+  },
+  {
+    icon: HeartHandshake,
+    phase: "Step 5",
+    title: "Ongoing Support",
+    desc: "Optional monthly support for ongoing tweaks, new automations, and priority help when you need it. Or run it yourself — the system is built to work without us.",
+    optional: true,
+  },
 ];
 
 const ProcessSection = () => (
@@ -19,11 +46,14 @@ const ProcessSection = () => (
         className="text-center mb-20"
       >
         <p className="text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4">
-          Our Process
+          How We Work
         </p>
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-          From Chaos to Scale
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+          Simple. Phased. <span className="text-gradient">No Disruption.</span>
         </h2>
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          We handle the complexity so you don't have to. Here's what working with us looks like.
+        </p>
       </motion.div>
 
       <div className="max-w-4xl mx-auto relative">
@@ -47,7 +77,12 @@ const ProcessSection = () => (
                 <div className="rounded-lg bg-card border border-border p-2.5 shadow-sm">
                   <step.icon className="h-5 w-5 text-primary" />
                 </div>
-                <span className="text-primary text-xs font-semibold tracking-[0.15em] uppercase">{step.phase}</span>
+                <span className="text-primary text-xs font-semibold tracking-[0.15em] uppercase">
+                  {step.phase}
+                  {step.optional && (
+                    <span className="ml-2 text-muted-foreground text-[10px] font-medium tracking-normal normal-case">(optional)</span>
+                  )}
+                </span>
               </div>
               <h3 className="text-xl font-bold mb-2">{step.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
