@@ -43,10 +43,10 @@ const Navbar = () => {
         </div>
         <a
           href="/form.html"
-          onClick={() => trackCTAClick('Navbar_AI_Audit')}
+          onClick={() => trackCTAClick('Navbar_Discovery_Call')}
           className="bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/30 font-bold rounded-full px-6 py-2.5 text-sm shadow-md shadow-accent/20 transition-all duration-200 inline-flex items-center"
         >
-          Book an AI Opportunity Audit
+          Book a Free Discovery Call
         </a>
       </div>
     </nav>
@@ -83,16 +83,16 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
-            href="/form.html"
-            onClick={() => trackCTAClick('Hero_AI_Audit')}
+            href="/dgt-system-audit-v2.html"
+            onClick={() => trackCTAClick('Hero_Free_Audit')}
             className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold px-8 py-6 text-base rounded-full group shadow-lg shadow-accent/20 inline-flex items-center"
           >
-            Book an AI Opportunity Audit
+            Take the Free 3-Minute Audit
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </a>
-          <a href="/about">
+          <a href="/form.html" onClick={() => trackCTAClick('Hero_Discovery_Call')}>
             <Button size="lg" variant="outline" className="border-accent text-accent bg-accent/10 hover:bg-accent/20 font-medium px-8 py-6 text-base rounded-full">
-              Learn More
+              Book a Free Discovery Call
             </Button>
           </a>
         </motion.div>
