@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Your Free Discovery Call — DGT Partner</title>
+<meta name="description" content="Book a free 30-minute discovery call with DGT Partner. We'll show you exactly where your business is leaking revenue — and what to fix first.">
+<meta property="og:title" content="Book Your Free Discovery Call — DGT Partner">
+<meta property="og:description" content="30 minutes. No pitch, no pressure. Just a clear plan to plug the leaks in your business operations.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Fraunces:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FAFAF8;--card:#FFFFFF;--text:#1A1A1A;--muted:#5E5E5E;--light:#8A8A8A;
+  --accent:#0F4C5C;--accent2:#E36414;--border:#E5E4DF;--surface:#F3F2EE;--warm:#FEF5EE;
+  --green:#2D6A4F;--red:#C62828;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1rem}
+
+.form-container{max-width:520px;width:100%;margin:0 auto}
+
+.form-hero{text-align:center;margin-bottom:2.5rem}
+.form-hero .brand{font-family:'Fraunces',serif;font-size:1rem;color:var(--accent);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem;opacity:.7}
+.form-hero h1{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:.75rem}
+.form-hero h1 span{color:var(--accent2)}
+.form-hero p{font-size:1rem;color:var(--muted);max-width:440px;margin:0 auto}
+
+.form-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2.5rem 2rem;margin-bottom:1.5rem}
+
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:.35rem}
+.form-group .optional{font-weight:400;color:var(--light);font-size:.8rem}
+.form-input{display:block;width:100%;padding:13px 16px;border:1.5px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.95rem;background:var(--bg);transition:border-color .2s;color:var(--text)}
+.form-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(15,76,92,.08)}
+.form-input::placeholder{color:var(--light)}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238A8A8A' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6.5 6 6.5-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.form-textarea{resize:vertical;min-height:80px}
+
+.form-error{color:var(--red);font-size:.85rem;margin-bottom:.75rem;display:none;text-align:center}
+
+.form-success{display:none;text-align:center;padding:2rem 1.5rem}
+.form-success .check-icon{width:64px;height:64px;background:var(--green);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.form-success .check-icon svg{width:32px;height:32px;color:#fff}
+.form-success h2{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--text);margin-bottom:.5rem}
+.form-success p{font-size:.95rem;color:var(--muted);margin-bottom:1.5rem}
+.form-success .btn-calendar{display:inline-block;text-decoration:none;background:var(--accent2);color:#fff;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;padding:14px 36px;border-radius:12px;transition:all .2s}
+.form-success .btn-calendar:hover{background:#c9560f;transform:translateY(-1px)}
+
+.btn-submit{display:block;width:100%;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;padding:15px 28px;border-radius:12px;border:none;cursor:pointer;transition:all .2s;background:var(--accent2);color:#fff;margin-top:.5rem}
+.btn-submit:hover{background:#c9560f;transform:translateY(-1px)}
+.btn-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+.trust-signals{display:flex;flex-wrap:wrap;justify-content:center;gap:1.25rem;margin-top:1.25rem}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--light)}
+.trust-item svg{width:16px;height:16px;color:var(--accent);flex-shrink:0}
+
+.form-disclaimer{text-align:center;font-size:.78rem;color:var(--light);margin-top:1rem}
+
+.audit-link{text-align:center;margin-top:1.5rem;padding:1.25rem;background:var(--warm);border-radius:12px}
+.audit-link p{font-size:.9rem;color:var(--muted);margin-bottom:.5rem}
+.audit-link a{color:var(--accent);font-weight:600;text-decoration:none}
+.audit-link a:hover{text-decoration:underline}
+
+.form-footer{text-align:center;padding:2rem 0 1rem;opacity:.6}
+.form-footer .brand{font-family:'Fraunces',serif;font-size:.9rem;color:var(--accent);font-weight:600}
+.form-footer p{font-size:.75rem;color:var(--light)}
+
+@media(max-width:600px){
+  .form-hero h1{font-size:1.6rem}
+  .form-card{padding:1.75rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<div class="form-container">
+
+  <div class="form-hero">
+    <div class="brand">DGT Partner</div>
+    <h1>Let's plug the <span>leaks</span> in your business</h1>
+    <p>Fill out the form below and we'll reach out to schedule your free 30-minute discovery call. No pitch, no pressure — just a clear plan.</p>
+  </div>
+
+  <div class="form-card" id="formCard">
+    <div class="form-error" id="formError"></div>
+
+    <form id="leadForm" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label for="formName">Full name</label>
+        <input type="text" class="form-input" id="formName" placeholder="Jane Smith" required>
+      </div>
+
+      <div class="form-group">
+        <label for="formEmail">Email address</label>
+        <input type="email" class="form-input" id="formEmail" placeholder="jane@company.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="formPhone">Phone number <span class="optional">(optional)</span></label>
+        <input type="tel" class="form-input" id="formPhone" placeholder="(555) 123-4567">
+      </div>
+
+      <div class="form-group">
+        <label for="formCompany">Company name <span class="optional">(optional)</span></label>
+        <input type="text" class="form-input" id="formCompany" placeholder="Acme Corp">
+      </div>
+
+      <div class="form-group">
+        <label for="formIndustry">Industry</label>
+        <select class="form-input form-select" id="formIndustry" required>
+          <option value="" disabled selected>Select your industry</option>
+          <option value="real-estate">Real estate</option>
+          <option value="mortgage">Mortgage / lending</option>
+          <option value="insurance">Insurance</option>
+          <option value="financial">Financial services</option>
+          <option value="legal">Legal / accounting</option>
+          <option value="health">Health & wellness</option>
+          <option value="consulting">Consulting</option>
+          <option value="trades">Trades & contractors</option>
+          <option value="agency">Agency</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="formChallenge">What's your biggest operational challenge right now? <span class="optional">(optional)</span></label>
+        <textarea class="form-input form-textarea" id="formChallenge" placeholder="e.g., I'm losing track of follow-ups, my tools don't talk to each other, I can't tell where leads are coming from..."></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submitBtn">Get My Free Discovery Call →</button>
+    </form>
+
+    <div class="trust-signals">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        No spam, ever
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        30-min call
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        100% free
+      </div>
+    </div>
+
+    <p class="form-disclaimer">We'll send one email to schedule your call. That's it. Unsubscribe anytime.</p>
+  </div>
+
+  <!-- Success state -->
+  <div class="form-card form-success" id="formSuccess">
+    <div class="check-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2>You're in!</h2>
+    <p>We've received your info and will be in touch shortly. Want to get started right away? Book a time that works for you.</p>
+    <a href="https://calendly.com/eomole-dgtpartner/30min?month=2026-03" target="_blank" class="btn-calendar">Book a Time Now →</a>
+  </div>
+
+  <div class="audit-link">
+    <p>Haven't taken the audit yet?</p>
+    <a href="dgt-system-audit-v2.html">Take the free 3-minute Business Operations Audit →</a>
+  </div>
+
+  <div class="form-footer">
+    <div class="brand">DGT Partner</div>
+    <p>Automation · Data · AI Operations</p>
+  </div>
+
+</div>
+
+<script>
+const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26955810/upj226o/';
+const CALENDLY_URL = 'https://calendly.com/eomole-dgtpartner/30min?month=2026-03';
+
+const urlParams = new URLSearchParams(window.location.search);
+const utmData = {
+  utm_source:   urlParams.get('utm_source')   || '',
+  utm_medium:   urlParams.get('utm_medium')   || '',
+  utm_campaign: urlParams.get('utm_campaign') || '',
+  utm_content:  urlParams.get('utm_content')  || '',
+  referrer:     document.referrer || ''
+};
+
+async function handleSubmit(e) {
+  e.preventDefault();
+
+  const name      = document.getElementById('formName').value.trim();
+  const email     = document.getElementById('formEmail').value.trim();
+  const phone     = document.getElementById('formPhone').value.trim();
+  const company   = document.getElementById('formCompany').value.trim();
+  const industry  = document.getElementById('formIndustry').value;
+  const challenge = document.getElementById('formChallenge').value.trim();
+  const errorEl   = document.getElementById('formError');
+  const btn       = document.getElementById('submitBtn');
+
+  errorEl.style.display = 'none';
+
+  if (!name || !email) {
+    errorEl.textContent = 'Please enter your name and email address.';
+    errorEl.style.display = 'block';
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errorEl.textContent = 'Please enter a valid email address.';
+    errorEl.style.display = 'block';
+    return;
+  }
+  if (!industry) {
+    errorEl.textContent = 'Please select your industry.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  // Check if audit score was passed via URL
+  const auditScore = urlParams.get('score') || '';
+  const auditTier  = urlParams.get('tier')  || '';
+
+  const leadData = {
+    name,
+    email,
+    phone,
+    company,
+    industry,
+    challenge,
+    source: 'discovery_call_form',
+    audit_score: auditScore,
+    audit_tier:  auditTier,
+    ...utmData,
+    page_url:  window.location.href,
+    timestamp: new Date().toISOString()
+  };
+
+  console.log('── LEAD CAPTURED ──');
+  console.log(JSON.stringify(leadData, null, 2));
+
+  if (ZAPIER_WEBHOOK_URL) {
+    try {
+      await fetch(ZAPIER_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadData)
+      });
+      console.log('Sent to Zapier');
+    } catch (err) {
+      console.warn('Zapier webhook failed:', err);
+    }
+  }
+
+  // Show success state
+  document.getElementById('formCard').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
