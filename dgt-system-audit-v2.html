@@ -248,7 +248,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);lin
       <div class="final-cta">
         <h3>Ready to plug the leaks?</h3>
         <p>Book a free 30-minute discovery call. We'll walk through your results together and show you exactly what to fix first — no pitch, no pressure.</p>
-        <a href="https://calendly.com/eomole-dgtpartner/30min?month=2026-03" target="_blank" class="btn btn-cta" style="display:inline-block;text-decoration:none;width:auto;padding:16px 48px">Book Your Discovery Call →</a>
+        <a href="form.html" class="btn btn-cta" id="finalCtaLink" style="display:inline-block;text-decoration:none;width:auto;padding:16px 48px">Book Your Discovery Call →</a>
       </div>
     </div>
   </div>
@@ -763,6 +763,17 @@ async function unlockReport() {
   document.getElementById('gateSection').classList.add('hidden');
   document.getElementById('detailedReport').classList.add('active');
   generateDetailedReport();
+
+  // Update final CTA to pass audit data to form
+  const ctaLink = document.getElementById('finalCtaLink');
+  if (ctaLink) {
+    const params = new URLSearchParams();
+    params.set('score', total);
+    params.set('tier', tier.label);
+    params.set('weakest', categories[weakest].label);
+    ctaLink.href = `form.html?${params.toString()}`;
+  }
+
   window.scrollTo({ top: document.getElementById('detailedReport').offsetTop - 80, behavior: 'smooth' });
 }
 
