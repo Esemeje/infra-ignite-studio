@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Operations Audit — DGT Partner</title>
+<meta name="description" content="Free 3-minute audit: find out exactly where your business is leaking leads, clients, and revenue — and what to fix first.">
+<meta property="og:title" content="How Much Revenue Is Your Business Leaking? — Free Audit">
+<meta property="og:description" content="10 questions. 3 minutes. Find out where leads, clients, and referrals are slipping through the cracks.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Fraunces:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FAFAF8;--card:#FFFFFF;--text:#1A1A1A;--muted:#5E5E5E;--light:#8A8A8A;
+  --accent:#0F4C5C;--accent2:#E36414;--border:#E5E4DF;--surface:#F3F2EE;--warm:#FEF5EE;
+  --green:#2D6A4F;--yellow:#B8860B;--red:#C62828;--orange:#E65100;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
+
+.container{max-width:720px;margin:0 auto;padding:2rem 1.5rem 4rem}
+
+/* ── Hero ── */
+.audit-hero{text-align:center;padding:3rem 1rem 2.5rem;margin-bottom:2rem}
+.audit-hero .brand{font-family:'Fraunces',serif;font-size:1rem;color:var(--accent);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem;opacity:.7}
+.audit-hero h1{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:var(--text);line-height:1.25;margin-bottom:.75rem}
+.audit-hero h1 span{color:var(--accent2)}
+.audit-hero .subtitle{font-size:1.05rem;color:var(--muted);max-width:540px;margin:0 auto .5rem}
+.audit-hero .time-badge{display:inline-flex;align-items:center;gap:6px;margin-top:1rem;font-size:.85rem;color:var(--accent);font-weight:500;background:var(--surface);padding:6px 16px;border-radius:20px}
+.audit-hero .time-badge svg{width:16px;height:16px}
+
+/* ── Progress ── */
+.progress-wrap{position:sticky;top:0;z-index:100;background:var(--bg);padding:1rem 0 .75rem;border-bottom:1px solid var(--border);margin-bottom:2rem;transition:box-shadow .3s}
+.progress-wrap.scrolled{box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.progress-bar-track{height:6px;background:var(--surface);border-radius:3px;overflow:hidden}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px;transition:width .4s cubic-bezier(.4,0,.2,1);width:0%}
+.progress-text{display:flex;justify-content:space-between;margin-top:6px;font-size:.75rem;color:var(--light);font-weight:500}
+
+/* ── Question Card ── */
+.question-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem 2rem 1.75rem;margin-bottom:1.25rem;opacity:0;transform:translateY(20px);animation:slideUp .5s forwards}
+@keyframes slideUp{to{opacity:1;transform:translateY(0)}}
+.question-card .category{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent2);font-weight:700;margin-bottom:.5rem}
+.question-card .q-number{font-family:'Fraunces',serif;font-size:.85rem;color:var(--light);margin-bottom:.25rem}
+.question-card h3{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;color:var(--text);margin-bottom:1.25rem;line-height:1.4}
+
+/* ── Answer Options ── */
+.options{display:flex;flex-direction:column;gap:.6rem}
+.option{position:relative;display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:2px solid var(--border);border-radius:12px;cursor:pointer;transition:all .2s;background:var(--card)}
+.option:hover{border-color:var(--accent);background:#f8fbfc}
+.option.selected{border-color:var(--accent);background:#EDF5F7}
+.option.selected .radio-dot{background:var(--accent);border-color:var(--accent)}
+.option.selected .radio-dot::after{opacity:1;transform:scale(1)}
+.radio-dot{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:2px solid var(--border);background:#fff;margin-top:1px;position:relative;transition:all .2s}
+.radio-dot::after{content:'';position:absolute;top:4px;left:4px;width:10px;height:10px;border-radius:50%;background:#fff;opacity:0;transform:scale(.5);transition:all .2s}
+.option-text{font-size:.92rem;color:var(--text);line-height:1.5}
+
+/* ── Navigation ── */
+.nav-buttons{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;gap:1rem}
+.btn{font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;padding:12px 28px;border-radius:10px;border:none;cursor:pointer;transition:all .2s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#0a3a48;transform:translateY(-1px)}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn-secondary{background:transparent;color:var(--muted);border:1.5px solid var(--border)}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.btn-cta{background:var(--accent2);color:#fff;font-size:1rem;padding:16px 36px;border-radius:12px;width:100%}
+.btn-cta:hover{background:#c9560f;transform:translateY(-1px)}
+.btn-cta:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* ── Results ── */
+.results-section{display:none}
+.results-section.active{display:block}
+
+.score-hero{text-align:center;padding:3rem 1.5rem;background:var(--card);border:1px solid var(--border);border-radius:20px;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.score-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;opacity:.06}
+.score-hero .score-number{font-family:'Fraunces',serif;font-size:5rem;font-weight:700;line-height:1;margin-bottom:.25rem}
+.score-hero .score-of{font-size:1rem;color:var(--light);margin-bottom:.5rem}
+.score-hero .score-label{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;margin-bottom:.5rem}
+.score-hero .score-summary{font-size:1rem;color:var(--muted);max-width:480px;margin:0 auto;line-height:1.65}
+
+.score-hero.tier-machine .score-number{color:var(--green)}
+.score-hero.tier-machine .score-label{color:var(--green)}
+.score-hero.tier-machine::before{background:var(--green)}
+.score-hero.tier-fragile .score-number{color:var(--yellow)}
+.score-hero.tier-fragile .score-label{color:var(--yellow)}
+.score-hero.tier-fragile::before{background:var(--yellow)}
+.score-hero.tier-leaking .score-number{color:var(--orange)}
+.score-hero.tier-leaking .score-label{color:var(--orange)}
+.score-hero.tier-leaking::before{background:var(--orange)}
+.score-hero.tier-blind .score-number{color:var(--red)}
+.score-hero.tier-blind .score-label{color:var(--red)}
+.score-hero.tier-blind::before{background:var(--red)}
+
+/* ── Category Bars ── */
+.category-breakdown{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem 2rem;margin-bottom:1.5rem}
+.category-breakdown h3{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--text);margin-bottom:1.25rem}
+.cat-row{margin-bottom:1rem}
+.cat-row:last-child{margin-bottom:0}
+.cat-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.cat-name{font-size:.85rem;font-weight:600;color:var(--text)}
+.cat-score{font-size:.8rem;font-weight:700;color:var(--accent);font-family:'Fraunces',serif}
+.cat-bar{height:8px;background:var(--surface);border-radius:4px;overflow:hidden}
+.cat-bar-fill{height:100%;border-radius:4px;transition:width 1s cubic-bezier(.4,0,.2,1)}
+
+/* ── Stat Callout ── */
+.stat-callout{background:var(--warm);border-left:4px solid var(--accent2);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.stat-callout .stat-big{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--accent2);margin-bottom:.25rem}
+.stat-callout p{font-size:.9rem;color:var(--muted);margin:0}
+
+/* ── Gate ── */
+.gate-section{background:var(--card);border:2px solid var(--accent);border-radius:16px;padding:2.25rem 2rem;text-align:center;margin-bottom:1.5rem}
+.gate-section h3{font-family:'Fraunces',serif;font-size:1.25rem;color:var(--accent);margin-bottom:.5rem}
+.gate-section p{font-size:.92rem;color:var(--muted);margin-bottom:1.5rem;max-width:440px;margin-left:auto;margin-right:auto}
+.gate-form{max-width:380px;margin:0 auto}
+.gate-input{display:block;width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.92rem;margin-bottom:.65rem;background:var(--bg);transition:border-color .2s;color:var(--text)}
+.gate-input:focus{outline:none;border-color:var(--accent)}
+.gate-input::placeholder{color:var(--light)}
+.gate-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238A8A8A' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6.5 6 6.5-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.gate-disclaimer{font-size:.75rem;color:var(--light);margin-top:.75rem}
+.gate-error{color:var(--red);font-size:.82rem;margin-bottom:.5rem;display:none}
+
+/* ── Detailed Report ── */
+.detailed-report{display:none}
+.detailed-report.active{display:block}
+.report-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem 1.75rem;margin-bottom:1rem;opacity:0;animation:slideUp .5s forwards}
+.report-card .report-cat{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent2);font-weight:700;margin-bottom:.35rem}
+.report-card h4{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--text);margin-bottom:.15rem}
+.report-card .your-answer{font-size:.85rem;color:var(--light);margin-bottom:.6rem;font-style:italic}
+.report-card .recommendation{font-size:.9rem;color:var(--muted);line-height:1.65}
+
+.revenue-impact{background:linear-gradient(135deg,var(--accent) 0%,#1a6b7f 100%);border-radius:16px;padding:2rem;color:#fff;text-align:center;margin-bottom:1.5rem}
+.revenue-impact h3{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;margin-bottom:.25rem;opacity:.9}
+.revenue-impact .rev-number{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:700;margin-bottom:.35rem}
+.revenue-impact p{font-size:.88rem;opacity:.8;max-width:420px;margin:0 auto}
+
+.final-cta{text-align:center;padding:2.5rem 1.5rem;background:var(--card);border:2px solid var(--accent2);border-radius:16px;margin-bottom:1rem}
+.final-cta h3{font-family:'Fraunces',serif;font-size:1.35rem;color:var(--text);margin-bottom:.5rem}
+.final-cta p{font-size:.92rem;color:var(--muted);margin-bottom:1.5rem;max-width:440px;margin-left:auto;margin-right:auto}
+
+.audit-footer{text-align:center;padding:2rem 0 1rem;margin-top:1rem;opacity:.6}
+.audit-footer .brand{font-family:'Fraunces',serif;font-size:.9rem;color:var(--accent);font-weight:600}
+.audit-footer p{font-size:.75rem;color:var(--light)}
+
+@media(max-width:600px){
+  .container{padding:1.25rem 1rem 3rem}
+  .audit-hero h1{font-size:1.7rem}
+  .question-card{padding:1.5rem 1.25rem}
+  .score-hero{padding:2rem 1.25rem}
+  .score-hero .score-number{font-size:3.5rem}
+  .category-breakdown{padding:1.25rem}
+  .report-card{padding:1.25rem}
+}
+
+.hidden{display:none !important}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ════════════════════════════════════ -->
+  <!-- HERO                                -->
+  <!-- ════════════════════════════════════ -->
+  <div class="audit-hero" id="heroSection">
+    <div class="brand">DGT Partner</div>
+    <h1>How much revenue is your business <span>leaking?</span></h1>
+    <p class="subtitle">10 questions. 3 minutes. Find out exactly where leads, clients, and referrals are slipping through the cracks — and what to do about it.</p>
+    <div class="time-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Takes about 3 minutes
+    </div>
+    <div style="margin-top:2rem">
+      <button class="btn btn-primary" onclick="startAudit()" style="font-size:1rem;padding:14px 40px;border-radius:12px">Start Your Free Audit →</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════ -->
+  <!-- PROGRESS BAR                        -->
+  <!-- ════════════════════════════════════ -->
+  <div class="progress-wrap hidden" id="progressWrap">
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
+    <div class="progress-text">
+      <span id="progressLabel">Question 1 of 10</span>
+      <span id="progressCategory"></span>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════ -->
+  <!-- QUESTIONS                           -->
+  <!-- ════════════════════════════════════ -->
+  <div id="questionsContainer" class="hidden"></div>
+
+  <!-- ════════════════════════════════════ -->
+  <!-- RESULTS                             -->
+  <!-- ════════════════════════════════════ -->
+  <div class="results-section" id="resultsSection">
+    <div class="score-hero" id="scoreHero">
+      <div class="score-number" id="scoreNumber">--</div>
+      <div class="score-of">out of 100</div>
+      <div class="score-label" id="scoreLabel">--</div>
+      <p class="score-summary" id="scoreSummary"></p>
+    </div>
+
+    <div class="category-breakdown" id="categoryBreakdown">
+      <h3>Your scores by category</h3>
+      <div id="categoryBars"></div>
+    </div>
+
+    <div class="stat-callout" id="statCallout">
+      <div class="stat-big" id="statBig"></div>
+      <p id="statText"></p>
+    </div>
+
+    <!-- GATE -->
+    <div class="gate-section" id="gateSection">
+      <h3>Unlock your full report</h3>
+      <p>Get category-by-category recommendations, your estimated revenue impact, and a clear picture of what to fix first.</p>
+      <div class="gate-form">
+        <div class="gate-error" id="gateError"></div>
+        <input type="text" class="gate-input" id="gateName" placeholder="Your name" required>
+        <input type="email" class="gate-input" id="gateEmail" placeholder="Email address" required>
+        <input type="tel" class="gate-input" id="gatePhone" placeholder="Phone number (optional)">
+        <select class="gate-input gate-select" id="gateIndustry">
+          <option value="" disabled selected>Your industry</option>
+          <option value="real-estate">Real estate</option>
+          <option value="mortgage">Mortgage / lending</option>
+          <option value="insurance">Insurance</option>
+          <option value="financial">Financial services</option>
+          <option value="legal">Legal / accounting</option>
+          <option value="health">Health & wellness</option>
+          <option value="consulting">Consulting</option>
+          <option value="trades">Trades & contractors</option>
+          <option value="agency">Agency</option>
+          <option value="other">Other</option>
+        </select>
+        <button class="btn btn-cta" id="unlockBtn" onclick="unlockReport()">Unlock My Full Report →</button>
+        <p class="gate-disclaimer">No spam. We'll send your detailed results and one follow-up. That's it.</p>
+      </div>
+    </div>
+
+    <!-- DETAILED REPORT (gated) -->
+    <div class="detailed-report" id="detailedReport">
+      <div id="reportCards"></div>
+      <div class="revenue-impact" id="revenueImpact">
+        <h3>Your estimated annual revenue impact</h3>
+        <div class="rev-number" id="revNumber"></div>
+        <p id="revText"></p>
+      </div>
+      <div class="final-cta">
+        <h3>Ready to plug the leaks?</h3>
+        <p>Book a free 30-minute discovery call. We'll walk through your results together and show you exactly what to fix first — no pitch, no pressure.</p>
+        <a href="https://calendly.com/eomole-dgtpartner/30min?month=2026-03" target="_blank" class="btn btn-cta" style="display:inline-block;text-decoration:none;width:auto;padding:16px 48px">Book Your Discovery Call →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="audit-footer">
+    <div class="brand">DGT Partner</div>
+    <p>Automation · Data · AI Operations</p>
+  </div>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  CONFIG — UPDATE THESE TWO VALUES BEFORE LAUNCH
+// ═══════════════════════════════════════════════════════
+
+const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26955810/upj226o/'; 
+// ↑ Paste your Zapier webhook URL here.
+//   Example: 'https://hooks.zapier.com/hooks/catch/12345678/abcdef/'
+//   Leave empty string to disable (lead data logs to console only).
+
+const CALENDLY_URL = 'https://calendly.com/eomole-dgtpartner/30min?month=2026-03';
+// ↑ Replace with your actual Calendly booking link.
+
+// ═══════════════════════════════════════════════════════
+//  UTM CAPTURE — auto-reads from URL parameters
+// ═══════════════════════════════════════════════════════
+
+const urlParams = new URLSearchParams(window.location.search);
+const utmData = {
+  utm_source:   urlParams.get('utm_source')   || '',
+  utm_medium:   urlParams.get('utm_medium')   || '',
+  utm_campaign: urlParams.get('utm_campaign') || '',
+  utm_content:  urlParams.get('utm_content')  || '',
+  referrer:     document.referrer || ''
+};
+
+// ═══════════════════════════════════════════════════════
+//  QUESTIONS — Revised v2
+// ═══════════════════════════════════════════════════════
+//
+//  Scoring is weighted by category:
+//    Lead Capture:       2 questions × 10pts = 20pts max
+//    Follow-Up & Nurture: 2 questions × 10pts = 20pts max
+//    Referral Network:   1 question  × 10pts = 10pts max
+//    Renewals & Revenue: 2 questions × 10pts = 20pts max
+//    Tools & Data:       3 questions × 10pts = 30pts max
+//    TOTAL: 100pts
+//
+// ═══════════════════════════════════════════════════════
+
+const questions = [
+  // ── LEAD CAPTURE (20pts) ──
+  {
+    id: 1,
+    category: "Lead Capture",
+    categoryKey: "lead_capture",
+    question: "When a new lead reaches out — call, DM, email, referral — what's the process from first contact to booked appointment?",
+    options: [
+      { text: "I respond when I see it and try to schedule something manually", points: 3 },
+      { text: "I usually respond quickly, but there's no automatic follow-up if they don't reply", points: 5 },
+      { text: "Every lead gets an instant response, automatic follow-up, and a booking link — no matter the channel", points: 10 },
+      { text: "There's no real process — it depends on how busy I am that day", points: 0 }
+    ]
+  },
+  {
+    id: 2,
+    category: "Lead Capture",
+    categoryKey: "lead_capture",
+    question: "How many channels can a new lead reach you through — and are they connected?",
+    options: [
+      { text: "Mostly just phone and email", points: 3 },
+      { text: "Phone, email, and social media — but I check them manually", points: 5 },
+      { text: "Multiple channels, and they all feed into one system automatically", points: 10 },
+      { text: "I'm not sure where my leads actually come from", points: 0 }
+    ]
+  },
+
+  // ── FOLLOW-UP & NURTURE (20pts) ──
+  {
+    id: 3,
+    category: "Follow-Up & Nurture",
+    categoryKey: "followup",
+    question: "When you finish a job or close a deal, what happens to that client in your system?",
+    options: [
+      { text: "Nothing specific — the file gets closed", points: 2 },
+      { text: "I try to send a thank-you or check-in but it's inconsistent", points: 5 },
+      { text: "They automatically enter a follow-up sequence (email/text at set intervals)", points: 10 },
+      { text: "I don't have a system — they're in my phone contacts or a spreadsheet", points: 0 }
+    ]
+  },
+  {
+    id: 4,
+    category: "Follow-Up & Nurture",
+    categoryKey: "followup",
+    question: "How do you stay in touch with past clients who might need you again?",
+    options: [
+      { text: "I don't — I focus on new business", points: 0 },
+      { text: "I send holiday cards or occasional emails when I remember", points: 3 },
+      { text: "Automated campaigns go out on a schedule (birthday, anniversary, check-ins)", points: 10 },
+      { text: "I've been meaning to set this up", points: 1 }
+    ]
+  },
+
+  // ── REFERRAL NETWORK (10pts) ──
+  {
+    id: 5,
+    category: "Referral Network",
+    categoryKey: "referrals",
+    question: "How do you track who sends you referrals?",
+    options: [
+      { text: "I keep it in my head — I know who my people are", points: 2 },
+      { text: "I have a list somewhere (spreadsheet, notes app, CRM field)", points: 5 },
+      { text: "Every referral is logged with source attribution and automated thank-yous", points: 10 },
+      { text: "I don't really track this", points: 0 }
+    ]
+  },
+
+  // ── RENEWALS & REVENUE PROTECTION (20pts) ──
+  {
+    id: 6,
+    category: "Renewals & Revenue Protection",
+    categoryKey: "renewals",
+    question: "How do you make sure clients who should come back to you — for repeat service, a renewal, or a new need — actually do?",
+    options: [
+      { text: "I wait for them to reach out when they're ready", points: 1 },
+      { text: "I try to check in manually, but I lose track of who's due and when", points: 4 },
+      { text: "The system tracks key dates and triggers outreach automatically — months before they're due", points: 10 },
+      { text: "I don't have a way to track this — if they come back, great, if not, I move on", points: 0 }
+    ]
+  },
+  {
+    id: 7,
+    category: "Renewals & Revenue Protection",
+    categoryKey: "renewals",
+    question: "Think about the past 12 months. How many past clients do you think went elsewhere — not because you did bad work, but because nobody followed up?",
+    options: [
+      { text: "None that I know of", points: 7 },
+      { text: "Maybe 1–2", points: 4 },
+      { text: "Probably 3–5", points: 2 },
+      { text: "More than 5 — or honestly, I'd have no way to know", points: 0 }
+    ]
+  },
+
+  // ── TOOLS & DATA OWNERSHIP (30pts) ──
+  {
+    id: 8,
+    category: "Tools & Data Ownership",
+    categoryKey: "tools",
+    question: "What does your current tool setup look like for managing clients, leads, and communication?",
+    options: [
+      { text: "I use a CRM and most of my tools are connected", points: 10 },
+      { text: "I use a few tools (spreadsheets, email, maybe a CRM) but they don't talk to each other", points: 5 },
+      { text: "It's mostly manual — phone contacts, email inbox, maybe a notebook or spreadsheet", points: 2 },
+      { text: "I use whatever my company or platform provides — I haven't set up my own system", points: 0 }
+    ]
+  },
+  {
+    id: 9,
+    category: "Tools & Data Ownership",
+    categoryKey: "tools",
+    question: "How many separate tools or apps do you pay for to run your business operations? (CRM, email marketing, scheduling, texting, forms, spreadsheets, etc.)",
+    options: [
+      { text: "1–2 and they work well together", points: 10 },
+      { text: "3–4 — there's some overlap and they don't all connect", points: 5 },
+      { text: "5+ — I'm probably paying for things I don't fully use", points: 2 },
+      { text: "I'm not sure what I'm paying for at this point", points: 0 }
+    ]
+  },
+  {
+    id: 10,
+    category: "Tools & Data Ownership",
+    categoryKey: "tools",
+    question: "If you switched companies, left your current platform, or changed how you operate tomorrow — could you take your full client list and history with you?",
+    options: [
+      { text: "Yes — I own my CRM and all my data", points: 10 },
+      { text: "I think so, but I'd have to export and it would be messy", points: 5 },
+      { text: "No — most of my client data lives in a system I don't control", points: 1 },
+      { text: "I've never thought about this", points: 0 }
+    ]
+  }
+];
+
+// ═══════════════════════════════════════════════════════
+//  CATEGORIES
+// ═══════════════════════════════════════════════════════
+
+const categories = {
+  lead_capture: { label: "Lead Capture",                maxPoints: 20, color: "#0F4C5C" },
+  followup:     { label: "Follow-Up & Nurture",         maxPoints: 20, color: "#1a6b7f" },
+  referrals:    { label: "Referral Network",             maxPoints: 10, color: "#2d8a6e" },
+  renewals:     { label: "Renewals & Revenue Protection", maxPoints: 20, color: "#E36414" },
+  tools:        { label: "Tools & Data Ownership",       maxPoints: 30, color: "#B8860B" }
+};
+
+// ═══════════════════════════════════════════════════════
+//  TIERS
+// ═══════════════════════════════════════════════════════
+
+const tiers = [
+  {
+    id: "machine", min: 80, max: 100,
+    label: "Operational Machine",
+    summary: "Your systems are strong — you're ahead of the vast majority of service businesses. There may still be optimization opportunities or an AI layer that could save you hours per week, but the foundation is solid.",
+    stat: "Top 10%", statText: "of service businesses have this level of operational maturity. You're in rare company."
+  },
+  {
+    id: "fragile", min: 50, max: 79,
+    label: "Functional but Fragile",
+    summary: "Things work when you're on top of them. But you are the system — and that doesn't scale. One busy week, one vacation, one new hire, and things start falling through the cracks.",
+    stat: "63%", statText: "of businesses at this stage report losing at least 2–3 clients per year simply because no one followed up in time."
+  },
+  {
+    id: "leaking", min: 25, max: 49,
+    label: "Leaking Revenue",
+    summary: "You're losing clients, referrals, and repeat business to disorganization. Not because you're bad at your job — because there's no system catching what you can't personally track. The upside from fixing this is significant.",
+    stat: "$38K – $185K", statText: "is the conservative annual upside most service businesses in this range recover after systematizing their operations."
+  },
+  {
+    id: "blind", min: 0, max: 24,
+    label: "Flying Blind",
+    summary: "You're running a business on memory and manual effort. Every lead, every referral, every repeat client depends on you remembering to act. The good news: the ROI on fixing this is massive — one recovered client likely pays for the entire system.",
+    stat: "5× more likely", statText: "to lose a client in the next 12 months. Businesses without any follow-up system lose clients at 5× the rate of those with even basic automation."
+  }
+];
+
+// ═══════════════════════════════════════════════════════
+//  RECOMMENDATIONS (for gated detailed report)
+// ═══════════════════════════════════════════════════════
+
+const recommendations = {
+  lead_capture: {
+    low: "You're leaving money on the table every time someone reaches out and there's no process to capture them. Whether you answer the call or not — without an automatic next step (booking link, follow-up text, CRM entry), leads go cold fast. An AI-assisted response system with auto-booking would capture leads 24/7 and ensure nothing dies in your inbox.",
+    mid: "You've got some coverage, but there are gaps between first contact and booked appointment. If a lead doesn't respond to your first reply, what happens? Connecting all inbound channels into one system with automatic follow-up sequences would close that gap.",
+    high: "Your lead capture is solid. Consider adding lead scoring to prioritize high-value inquiries and route them to the right response faster."
+  },
+  followup: {
+    low: "Past clients are your most profitable source of new revenue — and right now they're going silent after the job is done. A 12-month automated nurture sequence (check-ins, value emails, anniversary touchpoints) would keep you top-of-mind without adding to your workload.",
+    mid: "You're doing some follow-up, but inconsistency is the killer. Automating your sequences so they run whether or not you remember would immediately protect repeat revenue.",
+    high: "Strong follow-up game. You might benefit from segmenting your sequences by client value or service type for even better response rates."
+  },
+  referrals: {
+    low: "Your referral network is your most valuable asset and it's completely untracked. A tiered referral partner system with automated thank-yous, quarterly check-ins, and source attribution would turn sporadic referrals into a predictable revenue channel.",
+    mid: "You know who sends you business, but you're not systematically nurturing those relationships. Automating the gratitude loop (instant thank-you, quarterly touchpoints, annual review) would increase referral volume measurably.",
+    high: "Your referral tracking is well-organized. Consider adding reward tiers or co-marketing with your top partners to deepen those relationships further."
+  },
+  renewals: {
+    low: "This is likely where you're losing the most money. Without a system that tracks when clients should come back and proactively reaches out, you're waiting for them to remember you. Meanwhile, anyone who does follow up — even a generic newsletter — gets there first. Setting up date-triggered campaigns 90, 60, and 30 days before key dates would change this completely.",
+    mid: "You're aware of the problem but the execution isn't automated. The gap between knowing a client is due and actually running a multi-touch outreach sequence is where revenue disappears.",
+    high: "Your renewal and repeat business tracking is strong. Look into predictive signals — engagement drop-off, response patterns — to flag at-risk clients before the renewal window even opens."
+  },
+  tools: {
+    low: "Your tools are either disconnected, redundant, or nonexistent — which means you're spending hours on manual work that software should handle, and your client data is scattered across systems you may not even control. A consolidated stack (CRM + automation + communication in one ecosystem) would cut your software costs, eliminate manual data entry, and give you a single source of truth you actually own.",
+    mid: "Your tools partially work but the gaps between them are costing you time and data. Integration (via Zapier or Make) or consolidation (moving to a unified platform) would close those gaps and give you a real dashboard instead of five half-used apps.",
+    high: "Your tool stack is clean and connected. Make sure you fully own your data — if you can export your complete client history, communication records, and deal data at any time, you're in great shape."
+  }
+};
+
+
+// ═══════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════
+
+let currentQuestion = 0;
+let answers = {};
+
+
+// ═══════════════════════════════════════════════════════
+//  QUIZ FLOW
+// ═══════════════════════════════════════════════════════
+
+function startAudit() {
+  document.getElementById('heroSection').classList.add('hidden');
+  document.getElementById('progressWrap').classList.remove('hidden');
+  document.getElementById('questionsContainer').classList.remove('hidden');
+  renderQuestion(0);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderQuestion(index) {
+  const q = questions[index];
+  const container = document.getElementById('questionsContainer');
+
+  container.innerHTML = `
+    <div class="question-card">
+      <div class="category">${q.category}</div>
+      <div class="q-number">Question ${q.id} of 10</div>
+      <h3>${q.question}</h3>
+      <div class="options">
+        ${q.options.map((opt, i) => `
+          <div class="option ${answers[q.id] === i ? 'selected' : ''}" onclick="selectOption(${q.id}, ${i}, ${opt.points})">
+            <div class="radio-dot"></div>
+            <div class="option-text">${opt.text}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <button class="btn btn-secondary ${index === 0 ? 'hidden' : ''}" onclick="goBack()">← Back</button>
+      <div></div>
+      <button class="btn btn-primary" id="nextBtn" ${answers[q.id] === undefined ? 'disabled' : ''} onclick="goNext()">
+        ${index === questions.length - 1 ? 'See My Results →' : 'Next →'}
+      </button>
+    </div>
+  `;
+
+  updateProgress(index);
+}
+
+function selectOption(questionId, optionIndex, points) {
+  answers[questionId] = optionIndex;
+  answers[`${questionId}_points`] = points;
+
+  document.querySelectorAll('.option').forEach((el, i) => {
+    el.classList.toggle('selected', i === optionIndex);
+  });
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function goBack() {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    renderQuestion(currentQuestion);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function goNext() {
+  if (currentQuestion < questions.length - 1) {
+    currentQuestion++;
+    renderQuestion(currentQuestion);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    showResults();
+  }
+}
+
+function updateProgress(index) {
+  const pct = ((index + 1) / questions.length) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = `Question ${index + 1} of ${questions.length}`;
+  document.getElementById('progressCategory').textContent = questions[index].category;
+}
+
+
+// ═══════════════════════════════════════════════════════
+//  RESULTS
+// ═══════════════════════════════════════════════════════
+
+function calculateScores() {
+  const catScores = {};
+  Object.keys(categories).forEach(k => catScores[k] = 0);
+
+  questions.forEach(q => {
+    const pts = answers[`${q.id}_points`] || 0;
+    catScores[q.categoryKey] += pts;
+  });
+
+  const total = Object.values(catScores).reduce((a, b) => a + b, 0);
+  return { total, catScores };
+}
+
+function getTier(total) {
+  return tiers.find(t => total >= t.min && total <= t.max) || tiers[tiers.length - 1];
+}
+
+function getWeakestCategory(catScores) {
+  let weakest = null;
+  let lowest = Infinity;
+  Object.entries(catScores).forEach(([key, score]) => {
+    const pct = score / categories[key].maxPoints;
+    if (pct < lowest) { lowest = pct; weakest = key; }
+  });
+  return weakest;
+}
+
+function showResults() {
+  document.getElementById('questionsContainer').classList.add('hidden');
+  document.getElementById('progressWrap').classList.add('hidden');
+  document.getElementById('resultsSection').classList.add('active');
+
+  const { total, catScores } = calculateScores();
+  const tier = getTier(total);
+  const weakest = getWeakestCategory(catScores);
+
+  // Score hero
+  const heroEl = document.getElementById('scoreHero');
+  heroEl.className = `score-hero tier-${tier.id}`;
+  document.getElementById('scoreNumber').textContent = total;
+  document.getElementById('scoreLabel').textContent = tier.label;
+  document.getElementById('scoreSummary').textContent = tier.summary;
+
+  // Category bars
+  const barsContainer = document.getElementById('categoryBars');
+  barsContainer.innerHTML = '';
+  Object.entries(categories).forEach(([key, cat]) => {
+    const score = catScores[key];
+    const pct = Math.round((score / cat.maxPoints) * 100);
+    const row = document.createElement('div');
+    row.className = 'cat-row';
+    row.innerHTML = `
+      <div class="cat-header">
+        <span class="cat-name">${cat.label}</span>
+        <span class="cat-score">${score} / ${cat.maxPoints}</span>
+      </div>
+      <div class="cat-bar">
+        <div class="cat-bar-fill" style="width:0%;background:${cat.color}"></div>
+      </div>
+    `;
+    barsContainer.appendChild(row);
+    setTimeout(() => {
+      row.querySelector('.cat-bar-fill').style.width = pct + '%';
+    }, 300);
+  });
+
+  // Stat callout
+  document.getElementById('statBig').textContent = tier.stat;
+  document.getElementById('statText').textContent = tier.statText;
+
+  // Store for report generation
+  window._auditData = { total, catScores, tier, weakest };
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
+// ═══════════════════════════════════════════════════════
+//  GATE & WEBHOOK
+// ═══════════════════════════════════════════════════════
+
+async function unlockReport() {
+  const name     = document.getElementById('gateName').value.trim();
+  const email    = document.getElementById('gateEmail').value.trim();
+  const phone    = document.getElementById('gatePhone').value.trim();
+  const industry = document.getElementById('gateIndustry').value;
+  const errorEl  = document.getElementById('gateError');
+  const btn      = document.getElementById('unlockBtn');
+
+  // Validate
+  errorEl.style.display = 'none';
+  if (!name || !email) {
+    errorEl.textContent = 'Please enter your name and email.';
+    errorEl.style.display = 'block';
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errorEl.textContent = 'Please enter a valid email address.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  // Disable button while sending
+  btn.disabled = true;
+  btn.textContent = 'Unlocking...';
+
+  // ── Build lead payload ──
+  const { total, catScores, tier, weakest } = window._auditData;
+
+  const leadData = {
+    // Contact info
+    name,
+    email,
+    phone,
+    industry,
+
+    // Scores
+    total_score:       total,
+    tier:              tier.label,
+    weakest_category:  categories[weakest].label,
+
+    // Category breakdown (flat keys for easy Zapier mapping)
+    score_lead_capture:  catScores.lead_capture,
+    score_followup:      catScores.followup,
+    score_referrals:     catScores.referrals,
+    score_renewals:      catScores.renewals,
+    score_tools:         catScores.tools,
+
+    // Individual answers (question text + chosen answer)
+    ...Object.fromEntries(
+      questions.map(q => [
+        `q${q.id}_answer`,
+        answers[q.id] !== undefined ? q.options[answers[q.id]].text : ''
+      ])
+    ),
+
+    // Tracking
+    ...utmData,
+    page_url:  window.location.href,
+    timestamp: new Date().toISOString()
+  };
+
+  console.log('── LEAD CAPTURED ──');
+  console.log(JSON.stringify(leadData, null, 2));
+
+  // ── Send to Zapier ──
+  if (ZAPIER_WEBHOOK_URL) {
+    try {
+      await fetch(ZAPIER_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadData)
+      });
+      console.log('✓ Sent to Zapier');
+    } catch (err) {
+      console.warn('Zapier webhook failed:', err);
+      // Don't block the user — still show the report
+    }
+  }
+
+  // ── Show report ──
+  document.getElementById('gateSection').classList.add('hidden');
+  document.getElementById('detailedReport').classList.add('active');
+  generateDetailedReport();
+  window.scrollTo({ top: document.getElementById('detailedReport').offsetTop - 80, behavior: 'smooth' });
+}
+
+
+// ═══════════════════════════════════════════════════════
+//  DETAILED REPORT
+// ═══════════════════════════════════════════════════════
+
+function generateDetailedReport() {
+  const { total, catScores, tier, weakest } = window._auditData;
+  const reportContainer = document.getElementById('reportCards');
+  reportContainer.innerHTML = '';
+
+  let delay = 0;
+  Object.entries(categories).forEach(([key, cat]) => {
+    const score = catScores[key];
+    const pct = score / cat.maxPoints;
+    let level = 'low';
+    if (pct >= 0.7) level = 'high';
+    else if (pct >= 0.4) level = 'mid';
+
+    const rec = recommendations[key][level];
+
+    const catQuestions = questions.filter(q => q.categoryKey === key);
+    const answerTexts = catQuestions.map(q => {
+      const idx = answers[q.id];
+      return idx !== undefined ? q.options[idx].text : 'Not answered';
+    });
+
+    const statusIcon = pct < 0.4 ? '⚠️ Needs attention' : pct < 0.7 ? '→ Room to improve' : '✓ Strong';
+
+    const card = document.createElement('div');
+    card.className = 'report-card';
+    card.style.animationDelay = delay + 's';
+    delay += 0.1;
+    card.innerHTML = `
+      <div class="report-cat">${cat.label} — ${score}/${cat.maxPoints}</div>
+      <h4>${statusIcon}</h4>
+      <div class="your-answer">Your answers: "${answerTexts.join('" · "')}"</div>
+      <div class="recommendation">${rec}</div>
+    `;
+    reportContainer.appendChild(card);
+  });
+
+  // Revenue impact
+  let revLow, revHigh;
+  if (total <= 24)      { revLow = 50000;  revHigh = 185000; }
+  else if (total <= 49) { revLow = 38000;  revHigh = 120000; }
+  else if (total <= 79) { revLow = 15000;  revHigh = 60000;  }
+  else                  { revLow = 5000;   revHigh = 20000;  }
+
+  document.getElementById('revNumber').textContent =
+    `$${(revLow/1000).toFixed(0)}K – $${(revHigh/1000).toFixed(0)}K / year`;
+  document.getElementById('revText').textContent =
+    `Based on your score of ${total}/100, this is the conservative estimated annual revenue you could recover by systematizing your weakest areas — especially ${categories[weakest].label.toLowerCase()}.`;
+}
+
+
+// ── Sticky progress shadow ──
+window.addEventListener('scroll', () => {
+  const pw = document.getElementById('progressWrap');
+  if (pw && !pw.classList.contains('hidden')) {
+    pw.classList.toggle('scrolled', window.scrollY > 20);
+  }
+});
+</script>
+
+</body>
+</html>
