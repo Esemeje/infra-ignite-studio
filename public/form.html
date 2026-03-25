@@ -8,63 +8,65 @@
 <meta property="og:title" content="Book Your Free Discovery Call — DGT Partner">
 <meta property="og:description" content="30 minutes. No pitch, no pressure. Just a clear plan to plug the leaks in your business operations.">
 <meta property="og:type" content="website">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0a0f1e;--card:#111827;--text:#ffffff;--muted:rgba(255,255,255,0.6);--light:rgba(255,255,255,0.4);
-  --accent:#00e5cc;--accent2:#00e5cc;--border:rgba(255,255,255,0.1);--surface:#151c2f;--warm:rgba(0,229,204,0.08);
-  --green:#00e5cc;--red:#f87171;
+  --bg:#f8fafc;--card:#ffffff;--text:#1a2332;--muted:#5a6577;--light:#8a93a3;
+  --accent:#00e5ff;--accent-dark:#00b8d4;--accent-glow:rgba(0,229,255,0.3);
+  --border:#e2e8f0;--surface:#f1f5f9;
+  --green:#10b981;--red:#ef4444;
+  --navy:#1a2332;
 }
 body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1rem}
 
 .form-container{max-width:520px;width:100%;margin:0 auto}
 
 .form-hero{text-align:center;margin-bottom:2.5rem}
-.form-hero .brand{font-family:'Fraunces',serif;font-size:1rem;color:var(--accent);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem;opacity:.8}
-.form-hero h1{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:.75rem}
-.form-hero h1 span{color:var(--accent)}
+.form-hero .brand{font-size:.85rem;color:var(--accent-dark);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem}
+.form-hero h1{font-size:2rem;font-weight:800;color:var(--navy);line-height:1.3;margin-bottom:.75rem}
+.form-hero h1 span{background:linear-gradient(135deg,#00e5ff,#00b8d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .form-hero p{font-size:1rem;color:var(--muted);max-width:440px;margin:0 auto}
 
-.form-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2.5rem 2rem;margin-bottom:1.5rem}
+.form-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2.5rem 2rem;margin-bottom:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 
 .form-group{margin-bottom:1rem}
-.form-group label{display:block;font-size:.85rem;font-weight:600;color:rgba(255,255,255,0.85);margin-bottom:.35rem}
+.form-group label{display:block;font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:.35rem}
 .form-group .optional{font-weight:400;color:var(--light);font-size:.8rem}
 .form-input{display:block;width:100%;padding:13px 16px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',system-ui,sans-serif;font-size:.95rem;background:var(--surface);transition:border-color .2s,box-shadow .2s;color:var(--text)}
-.form-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,229,204,.15)}
+.form-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
 .form-input::placeholder{color:var(--light)}
-.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='rgba(255,255,255,0.4)' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6.5 6 6.5-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238a93a3' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6.5 6 6.5-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
 .form-select option{background:var(--card);color:var(--text)}
 .form-textarea{resize:vertical;min-height:80px}
 
 .form-error{color:var(--red);font-size:.85rem;margin-bottom:.75rem;display:none;text-align:center}
 
 .form-success{display:none;text-align:center;padding:2rem 1.5rem}
-.form-success .check-icon{width:64px;height:64px;background:var(--accent);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:1rem}
-.form-success .check-icon svg{width:32px;height:32px;color:#0a0f1e}
-.form-success h2{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--text);margin-bottom:.5rem}
+.form-success .check-icon{width:64px;height:64px;background:var(--accent);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:1rem;box-shadow:0 4px 20px var(--accent-glow)}
+.form-success .check-icon svg{width:32px;height:32px;color:var(--navy)}
+.form-success h2{font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:.5rem}
 .form-success p{font-size:.95rem;color:var(--muted);margin-bottom:1.5rem}
-.form-success .btn-calendar{display:inline-block;text-decoration:none;background:var(--accent);color:#0a0f1e;font-family:'Inter',system-ui,sans-serif;font-size:1rem;font-weight:600;padding:14px 36px;border-radius:12px;transition:all .2s}
-.form-success .btn-calendar:hover{background:#00ccb5;transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,229,204,.2)}
+.form-success .btn-calendar{display:inline-block;text-decoration:none;background:var(--accent);color:var(--navy);font-family:'Inter',system-ui,sans-serif;font-size:1rem;font-weight:700;padding:14px 36px;border-radius:12px;transition:all .2s;box-shadow:0 4px 20px var(--accent-glow)}
+.form-success .btn-calendar:hover{background:var(--accent-dark);transform:translateY(-1px);box-shadow:0 8px 30px var(--accent-glow)}
 
-.btn-submit{display:block;width:100%;font-family:'Inter',system-ui,sans-serif;font-size:1rem;font-weight:600;padding:15px 28px;border-radius:12px;border:none;cursor:pointer;transition:all .2s;background:var(--accent);color:#0a0f1e;margin-top:.5rem}
-.btn-submit:hover{background:#00ccb5;transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,229,204,.2)}
+.btn-submit{display:block;width:100%;font-family:'Inter',system-ui,sans-serif;font-size:1rem;font-weight:700;padding:15px 28px;border-radius:12px;border:none;cursor:pointer;transition:all .2s;background:var(--accent);color:var(--navy);margin-top:.5rem;box-shadow:0 4px 20px var(--accent-glow)}
+.btn-submit:hover{background:var(--accent-dark);transform:translateY(-1px);box-shadow:0 8px 30px var(--accent-glow)}
 .btn-submit:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
 
 .trust-signals{display:flex;flex-wrap:wrap;justify-content:center;gap:1.25rem;margin-top:1.25rem}
 .trust-item{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--light)}
-.trust-item svg{width:16px;height:16px;color:var(--accent);flex-shrink:0}
+.trust-item svg{width:16px;height:16px;color:var(--accent-dark);flex-shrink:0}
 
 .form-disclaimer{text-align:center;font-size:.78rem;color:var(--light);margin-top:1rem}
 
-.audit-link{text-align:center;margin-top:1.5rem;padding:1.25rem;background:var(--warm);border:1px solid var(--border);border-radius:12px}
+.audit-link{text-align:center;margin-top:1.5rem;padding:1.25rem;background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.15);border-radius:12px}
 .audit-link p{font-size:.9rem;color:var(--muted);margin-bottom:.5rem}
-.audit-link a{color:var(--accent);font-weight:600;text-decoration:none}
+.audit-link a{color:var(--accent-dark);font-weight:600;text-decoration:none}
 .audit-link a:hover{text-decoration:underline}
 
 .form-footer{text-align:center;padding:2rem 0 1rem;opacity:.5}
-.form-footer .brand{font-family:'Fraunces',serif;font-size:.9rem;color:var(--accent);font-weight:600}
+.form-footer .brand{font-size:.9rem;color:var(--accent-dark);font-weight:700}
 .form-footer p{font-size:.75rem;color:var(--light)}
 
 @media(max-width:600px){
@@ -218,7 +220,6 @@ async function handleSubmit(e) {
   btn.disabled = true;
   btn.textContent = 'Submitting...';
 
-  // Check if audit score was passed via URL
   const auditScore = urlParams.get('score') || '';
   const auditTier  = urlParams.get('tier')  || '';
 
@@ -254,7 +255,6 @@ async function handleSubmit(e) {
     }
   }
 
-  // Show success state
   document.getElementById('formCard').style.display = 'none';
   document.getElementById('formSuccess').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });

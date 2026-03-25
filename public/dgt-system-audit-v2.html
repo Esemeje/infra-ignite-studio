@@ -8,73 +8,75 @@
 <meta property="og:title" content="How Much Revenue Is Your Business Leaking? — Free Audit">
 <meta property="og:description" content="10 questions. 3 minutes. Find out where leads, clients, and referrals are slipping through the cracks.">
 <meta property="og:type" content="website">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Fraunces:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#FAFAF8;--card:#FFFFFF;--text:#1A1A1A;--muted:#5E5E5E;--light:#8A8A8A;
-  --accent:#0F4C5C;--accent2:#E36414;--border:#E5E4DF;--surface:#F3F2EE;--warm:#FEF5EE;
-  --green:#2D6A4F;--yellow:#B8860B;--red:#C62828;--orange:#E65100;
+  --bg:#f8fafc;--card:#ffffff;--text:#1a2332;--muted:#5a6577;--light:#8a93a3;
+  --accent:#00e5ff;--accent-dark:#00b8d4;--accent-glow:rgba(0,229,255,0.3);
+  --border:#e2e8f0;--surface:#f1f5f9;
+  --green:#10b981;--yellow:#f59e0b;--red:#ef4444;--orange:#f97316;
+  --navy:#1a2332;
 }
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
 
 .container{max-width:720px;margin:0 auto;padding:2rem 1.5rem 4rem}
 
-/* ── Hero ── */
+/* -- Hero -- */
 .audit-hero{text-align:center;padding:3rem 1rem 2.5rem;margin-bottom:2rem}
-.audit-hero .brand{font-family:'Fraunces',serif;font-size:1rem;color:var(--accent);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem;opacity:.7}
-.audit-hero h1{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:var(--text);line-height:1.25;margin-bottom:.75rem}
-.audit-hero h1 span{color:var(--accent2)}
+.audit-hero .brand{font-size:.85rem;color:var(--accent-dark);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem}
+.audit-hero h1{font-size:2.2rem;font-weight:800;color:var(--navy);line-height:1.25;margin-bottom:.75rem}
+.audit-hero h1 span{background:linear-gradient(135deg,#00e5ff,#00b8d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .audit-hero .subtitle{font-size:1.05rem;color:var(--muted);max-width:540px;margin:0 auto .5rem}
-.audit-hero .time-badge{display:inline-flex;align-items:center;gap:6px;margin-top:1rem;font-size:.85rem;color:var(--accent);font-weight:500;background:var(--surface);padding:6px 16px;border-radius:20px}
+.audit-hero .time-badge{display:inline-flex;align-items:center;gap:6px;margin-top:1rem;font-size:.85rem;color:var(--accent-dark);font-weight:500;background:rgba(0,229,255,0.08);padding:6px 16px;border-radius:20px;border:1px solid rgba(0,229,255,0.15)}
 .audit-hero .time-badge svg{width:16px;height:16px}
 
-/* ── Progress ── */
+/* -- Progress -- */
 .progress-wrap{position:sticky;top:0;z-index:100;background:var(--bg);padding:1rem 0 .75rem;border-bottom:1px solid var(--border);margin-bottom:2rem;transition:box-shadow .3s}
 .progress-wrap.scrolled{box-shadow:0 2px 12px rgba(0,0,0,.06)}
 .progress-bar-track{height:6px;background:var(--surface);border-radius:3px;overflow:hidden}
-.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px;transition:width .4s cubic-bezier(.4,0,.2,1);width:0%}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,#00e5ff,#00b8d4);border-radius:3px;transition:width .4s cubic-bezier(.4,0,.2,1);width:0%}
 .progress-text{display:flex;justify-content:space-between;margin-top:6px;font-size:.75rem;color:var(--light);font-weight:500}
 
-/* ── Question Card ── */
-.question-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem 2rem 1.75rem;margin-bottom:1.25rem;opacity:0;transform:translateY(20px);animation:slideUp .5s forwards}
+/* -- Question Card -- */
+.question-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem 2rem 1.75rem;margin-bottom:1.25rem;opacity:0;transform:translateY(20px);animation:slideUp .5s forwards;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 @keyframes slideUp{to{opacity:1;transform:translateY(0)}}
-.question-card .category{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent2);font-weight:700;margin-bottom:.5rem}
-.question-card .q-number{font-family:'Fraunces',serif;font-size:.85rem;color:var(--light);margin-bottom:.25rem}
-.question-card h3{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;color:var(--text);margin-bottom:1.25rem;line-height:1.4}
+.question-card .category{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent-dark);font-weight:700;margin-bottom:.5rem}
+.question-card .q-number{font-size:.85rem;color:var(--light);margin-bottom:.25rem}
+.question-card h3{font-size:1.2rem;font-weight:600;color:var(--text);margin-bottom:1.25rem;line-height:1.4}
 
-/* ── Answer Options ── */
+/* -- Answer Options -- */
 .options{display:flex;flex-direction:column;gap:.6rem}
 .option{position:relative;display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:2px solid var(--border);border-radius:12px;cursor:pointer;transition:all .2s;background:var(--card)}
-.option:hover{border-color:var(--accent);background:#f8fbfc}
-.option.selected{border-color:var(--accent);background:#EDF5F7}
+.option:hover{border-color:var(--accent-dark);background:rgba(0,229,255,0.03)}
+.option.selected{border-color:var(--accent);background:rgba(0,229,255,0.06);box-shadow:0 0 12px var(--accent-glow)}
 .option.selected .radio-dot{background:var(--accent);border-color:var(--accent)}
 .option.selected .radio-dot::after{opacity:1;transform:scale(1)}
 .radio-dot{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:2px solid var(--border);background:#fff;margin-top:1px;position:relative;transition:all .2s}
 .radio-dot::after{content:'';position:absolute;top:4px;left:4px;width:10px;height:10px;border-radius:50%;background:#fff;opacity:0;transform:scale(.5);transition:all .2s}
 .option-text{font-size:.92rem;color:var(--text);line-height:1.5}
 
-/* ── Navigation ── */
+/* -- Navigation -- */
 .nav-buttons{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;gap:1rem}
-.btn{font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;padding:12px 28px;border-radius:10px;border:none;cursor:pointer;transition:all .2s}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:#0a3a48;transform:translateY(-1px)}
-.btn-primary:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn{font-family:'Inter',system-ui,sans-serif;font-size:.9rem;font-weight:600;padding:12px 28px;border-radius:10px;border:none;cursor:pointer;transition:all .2s}
+.btn-primary{background:var(--accent);color:var(--navy);box-shadow:0 4px 14px var(--accent-glow)}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-1px);box-shadow:0 6px 20px var(--accent-glow)}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
 .btn-secondary{background:transparent;color:var(--muted);border:1.5px solid var(--border)}
-.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
-.btn-cta{background:var(--accent2);color:#fff;font-size:1rem;padding:16px 36px;border-radius:12px;width:100%}
-.btn-cta:hover{background:#c9560f;transform:translateY(-1px)}
-.btn-cta:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent-dark)}
+.btn-cta{background:var(--accent);color:var(--navy);font-size:1rem;font-weight:700;padding:16px 36px;border-radius:12px;width:100%;box-shadow:0 4px 20px var(--accent-glow)}
+.btn-cta:hover{background:var(--accent-dark);transform:translateY(-1px);box-shadow:0 8px 30px var(--accent-glow)}
+.btn-cta:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
 
-/* ── Results ── */
+/* -- Results -- */
 .results-section{display:none}
 .results-section.active{display:block}
 
-.score-hero{text-align:center;padding:3rem 1.5rem;background:var(--card);border:1px solid var(--border);border-radius:20px;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.score-hero{text-align:center;padding:3rem 1.5rem;background:var(--card);border:1px solid var(--border);border-radius:20px;margin-bottom:1.5rem;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .score-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;opacity:.06}
-.score-hero .score-number{font-family:'Fraunces',serif;font-size:5rem;font-weight:700;line-height:1;margin-bottom:.25rem}
+.score-hero .score-number{font-size:5rem;font-weight:800;line-height:1;margin-bottom:.25rem}
 .score-hero .score-of{font-size:1rem;color:var(--light);margin-bottom:.5rem}
-.score-hero .score-label{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;margin-bottom:.5rem}
+.score-hero .score-label{font-size:1.5rem;font-weight:700;margin-bottom:.5rem}
 .score-hero .score-summary{font-size:1rem;color:var(--muted);max-width:480px;margin:0 auto;line-height:1.65}
 
 .score-hero.tier-machine .score-number{color:var(--green)}
@@ -90,43 +92,43 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);lin
 .score-hero.tier-blind .score-label{color:var(--red)}
 .score-hero.tier-blind::before{background:var(--red)}
 
-/* ── Category Bars ── */
-.category-breakdown{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem 2rem;margin-bottom:1.5rem}
-.category-breakdown h3{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--text);margin-bottom:1.25rem}
+/* -- Category Bars -- */
+.category-breakdown{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem 2rem;margin-bottom:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.category-breakdown h3{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:1.25rem}
 .cat-row{margin-bottom:1rem}
 .cat-row:last-child{margin-bottom:0}
 .cat-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
 .cat-name{font-size:.85rem;font-weight:600;color:var(--text)}
-.cat-score{font-size:.8rem;font-weight:700;color:var(--accent);font-family:'Fraunces',serif}
+.cat-score{font-size:.8rem;font-weight:700;color:var(--accent-dark)}
+
 .cat-bar{height:8px;background:var(--surface);border-radius:4px;overflow:hidden}
 .cat-bar-fill{height:100%;border-radius:4px;transition:width 1s cubic-bezier(.4,0,.2,1)}
 
-/* ── Stat Callout ── */
-.stat-callout{background:var(--warm);border-left:4px solid var(--accent2);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
-.stat-callout .stat-big{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--accent2);margin-bottom:.25rem}
+/* -- Stat Callout -- */
+.stat-callout{background:rgba(0,229,255,0.06);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.stat-callout .stat-big{font-size:1.3rem;font-weight:800;color:var(--accent-dark);margin-bottom:.25rem}
 .stat-callout p{font-size:.9rem;color:var(--muted);margin:0}
 
-
-/* ── Detailed Report ── */
+/* -- Detailed Report -- */
 .detailed-report{display:none}
 .detailed-report.active{display:block}
-.report-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem 1.75rem;margin-bottom:1rem;opacity:0;animation:slideUp .5s forwards}
-.report-card .report-cat{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent2);font-weight:700;margin-bottom:.35rem}
-.report-card h4{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--text);margin-bottom:.15rem}
+.report-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem 1.75rem;margin-bottom:1rem;opacity:0;animation:slideUp .5s forwards;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.report-card .report-cat{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent-dark);font-weight:700;margin-bottom:.35rem}
+.report-card h4{font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:.15rem}
 .report-card .your-answer{font-size:.85rem;color:var(--light);margin-bottom:.6rem;font-style:italic}
 .report-card .recommendation{font-size:.9rem;color:var(--muted);line-height:1.65}
 
-.revenue-impact{background:linear-gradient(135deg,var(--accent) 0%,#1a6b7f 100%);border-radius:16px;padding:2rem;color:#fff;text-align:center;margin-bottom:1.5rem}
-.revenue-impact h3{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;margin-bottom:.25rem;opacity:.9}
-.revenue-impact .rev-number{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:700;margin-bottom:.35rem}
+.revenue-impact{background:linear-gradient(135deg,var(--navy) 0%,#253347 100%);border-radius:16px;padding:2rem;color:#fff;text-align:center;margin-bottom:1.5rem}
+.revenue-impact h3{font-size:1.15rem;font-weight:600;margin-bottom:.25rem;opacity:.9}
+.revenue-impact .rev-number{font-size:2.5rem;font-weight:800;margin-bottom:.35rem;color:var(--accent)}
 .revenue-impact p{font-size:.88rem;opacity:.8;max-width:420px;margin:0 auto}
 
-.final-cta{text-align:center;padding:2.5rem 1.5rem;background:var(--card);border:2px solid var(--accent2);border-radius:16px;margin-bottom:1rem}
-.final-cta h3{font-family:'Fraunces',serif;font-size:1.35rem;color:var(--text);margin-bottom:.5rem}
+.final-cta{text-align:center;padding:2.5rem 1.5rem;background:var(--card);border:2px solid var(--accent);border-radius:16px;margin-bottom:1rem;box-shadow:0 0 20px var(--accent-glow)}
+.final-cta h3{font-size:1.35rem;font-weight:700;color:var(--text);margin-bottom:.5rem}
 .final-cta p{font-size:.92rem;color:var(--muted);margin-bottom:1.5rem;max-width:440px;margin-left:auto;margin-right:auto}
 
-.audit-footer{text-align:center;padding:2rem 0 1rem;margin-top:1rem;opacity:.6}
-.audit-footer .brand{font-family:'Fraunces',serif;font-size:.9rem;color:var(--accent);font-weight:600}
+.audit-footer{text-align:center;padding:2rem 0 1rem;margin-top:1rem;opacity:.5}
+.audit-footer .brand{font-size:.9rem;color:var(--accent-dark);font-weight:700}
 .audit-footer p{font-size:.75rem;color:var(--light)}
 
 @media(max-width:600px){
@@ -146,9 +148,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);lin
 
 <div class="container">
 
-  <!-- ════════════════════════════════════ -->
-  <!-- HERO                                -->
-  <!-- ════════════════════════════════════ -->
+  <!-- HERO -->
   <div class="audit-hero" id="heroSection">
     <div class="brand">DGT Partner</div>
     <h1>How much revenue is your business <span>leaking?</span></h1>
@@ -162,9 +162,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);lin
     </div>
   </div>
 
-  <!-- ════════════════════════════════════ -->
-  <!-- PROGRESS BAR                        -->
-  <!-- ════════════════════════════════════ -->
+  <!-- PROGRESS BAR -->
   <div class="progress-wrap hidden" id="progressWrap">
     <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
     <div class="progress-text">
@@ -173,14 +171,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);lin
     </div>
   </div>
 
-  <!-- ════════════════════════════════════ -->
-  <!-- QUESTIONS                           -->
-  <!-- ════════════════════════════════════ -->
+  <!-- QUESTIONS -->
   <div id="questionsContainer" class="hidden"></div>
 
-  <!-- ════════════════════════════════════ -->
-  <!-- RESULTS                             -->
-  <!-- ════════════════════════════════════ -->
+  <!-- RESULTS -->
   <div class="results-section" id="resultsSection">
     <div class="score-hero" id="scoreHero">
       <div class="score-number" id="scoreNumber">--</div>
@@ -206,7 +200,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);lin
       <a href="form.html" class="btn btn-cta" id="midCtaLink" style="display:inline-block;text-decoration:none;width:auto;padding:16px 48px">Book Your Discovery Call →</a>
     </div>
 
-    <!-- DETAILED REPORT (gated) -->
+    <!-- DETAILED REPORT -->
     <div class="detailed-report" id="detailedReport">
       <div id="reportCards"></div>
       <div class="revenue-impact" id="revenueImpact">
@@ -230,21 +224,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);lin
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════════
-//  CONFIG — UPDATE THESE TWO VALUES BEFORE LAUNCH
-// ═══════════════════════════════════════════════════════
-
-const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26955810/upj226o/'; 
-// ↑ Paste your Zapier webhook URL here.
-//   Example: 'https://hooks.zapier.com/hooks/catch/12345678/abcdef/'
-//   Leave empty string to disable (lead data logs to console only).
-
+const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26955810/upj226o/';
 const CALENDLY_URL = 'https://calendly.com/eomole-dgtpartner/30min?month=2026-03';
-// ↑ Replace with your actual Calendly booking link.
-
-// ═══════════════════════════════════════════════════════
-//  UTM CAPTURE — auto-reads from URL parameters
-// ═══════════════════════════════════════════════════════
 
 const urlParams = new URLSearchParams(window.location.search);
 const utmData = {
@@ -255,26 +236,9 @@ const utmData = {
   referrer:     document.referrer || ''
 };
 
-// ═══════════════════════════════════════════════════════
-//  QUESTIONS — Revised v2
-// ═══════════════════════════════════════════════════════
-//
-//  Scoring is weighted by category:
-//    Lead Capture:       2 questions × 10pts = 20pts max
-//    Follow-Up & Nurture: 2 questions × 10pts = 20pts max
-//    Referral Network:   1 question  × 10pts = 10pts max
-//    Renewals & Revenue: 2 questions × 10pts = 20pts max
-//    Tools & Data:       3 questions × 10pts = 30pts max
-//    TOTAL: 100pts
-//
-// ═══════════════════════════════════════════════════════
-
 const questions = [
-  // ── LEAD CAPTURE (20pts) ──
   {
-    id: 1,
-    category: "Lead Capture",
-    categoryKey: "lead_capture",
+    id: 1, category: "Lead Capture", categoryKey: "lead_capture",
     question: "When a new lead reaches out — call, DM, email, referral — what's the process from first contact to booked appointment?",
     options: [
       { text: "I respond when I see it and try to schedule something manually", points: 3 },
@@ -284,9 +248,7 @@ const questions = [
     ]
   },
   {
-    id: 2,
-    category: "Lead Capture",
-    categoryKey: "lead_capture",
+    id: 2, category: "Lead Capture", categoryKey: "lead_capture",
     question: "How many channels can a new lead reach you through — and are they connected?",
     options: [
       { text: "Mostly just phone and email", points: 3 },
@@ -295,12 +257,8 @@ const questions = [
       { text: "I'm not sure where my leads actually come from", points: 0 }
     ]
   },
-
-  // ── FOLLOW-UP & NURTURE (20pts) ──
   {
-    id: 3,
-    category: "Follow-Up & Nurture",
-    categoryKey: "followup",
+    id: 3, category: "Follow-Up & Nurture", categoryKey: "followup",
     question: "When you finish a job or close a deal, what happens to that client in your system?",
     options: [
       { text: "Nothing specific — the file gets closed", points: 2 },
@@ -310,9 +268,7 @@ const questions = [
     ]
   },
   {
-    id: 4,
-    category: "Follow-Up & Nurture",
-    categoryKey: "followup",
+    id: 4, category: "Follow-Up & Nurture", categoryKey: "followup",
     question: "How do you stay in touch with past clients who might need you again?",
     options: [
       { text: "I don't — I focus on new business", points: 0 },
@@ -321,12 +277,8 @@ const questions = [
       { text: "I've been meaning to set this up", points: 1 }
     ]
   },
-
-  // ── REFERRAL NETWORK (10pts) ──
   {
-    id: 5,
-    category: "Referral Network",
-    categoryKey: "referrals",
+    id: 5, category: "Referral Network", categoryKey: "referrals",
     question: "How do you track who sends you referrals?",
     options: [
       { text: "I keep it in my head — I know who my people are", points: 2 },
@@ -335,12 +287,8 @@ const questions = [
       { text: "I don't really track this", points: 0 }
     ]
   },
-
-  // ── RENEWALS & REVENUE PROTECTION (20pts) ──
   {
-    id: 6,
-    category: "Renewals & Revenue Protection",
-    categoryKey: "renewals",
+    id: 6, category: "Renewals & Revenue Protection", categoryKey: "renewals",
     question: "How do you make sure clients who should come back to you — for repeat service, a renewal, or a new need — actually do?",
     options: [
       { text: "I wait for them to reach out when they're ready", points: 1 },
@@ -350,23 +298,17 @@ const questions = [
     ]
   },
   {
-    id: 7,
-    category: "Renewals & Revenue Protection",
-    categoryKey: "renewals",
+    id: 7, category: "Renewals & Revenue Protection", categoryKey: "renewals",
     question: "Think about the past 12 months. How many past clients do you think went elsewhere — not because you did bad work, but because nobody followed up?",
     options: [
       { text: "None that I know of", points: 7 },
-      { text: "Maybe 1–2", points: 4 },
-      { text: "Probably 3–5", points: 2 },
+      { text: "Maybe 1\u20132", points: 4 },
+      { text: "Probably 3\u20135", points: 2 },
       { text: "More than 5 — or honestly, I'd have no way to know", points: 0 }
     ]
   },
-
-  // ── TOOLS & DATA OWNERSHIP (30pts) ──
   {
-    id: 8,
-    category: "Tools & Data Ownership",
-    categoryKey: "tools",
+    id: 8, category: "Tools & Data Ownership", categoryKey: "tools",
     question: "What does your current tool setup look like for managing clients, leads, and communication?",
     options: [
       { text: "I use a CRM and most of my tools are connected", points: 10 },
@@ -376,21 +318,17 @@ const questions = [
     ]
   },
   {
-    id: 9,
-    category: "Tools & Data Ownership",
-    categoryKey: "tools",
+    id: 9, category: "Tools & Data Ownership", categoryKey: "tools",
     question: "How many separate tools or apps do you pay for to run your business operations? (CRM, email marketing, scheduling, texting, forms, spreadsheets, etc.)",
     options: [
-      { text: "1–2 and they work well together", points: 10 },
-      { text: "3–4 — there's some overlap and they don't all connect", points: 5 },
+      { text: "1\u20132 and they work well together", points: 10 },
+      { text: "3\u20134 — there's some overlap and they don't all connect", points: 5 },
       { text: "5+ — I'm probably paying for things I don't fully use", points: 2 },
       { text: "I'm not sure what I'm paying for at this point", points: 0 }
     ]
   },
   {
-    id: 10,
-    category: "Tools & Data Ownership",
-    categoryKey: "tools",
+    id: 10, category: "Tools & Data Ownership", categoryKey: "tools",
     question: "If you switched companies, left your current platform, or changed how you operate tomorrow — could you take your full client list and history with you?",
     options: [
       { text: "Yes — I own my CRM and all my data", points: 10 },
@@ -401,21 +339,13 @@ const questions = [
   }
 ];
 
-// ═══════════════════════════════════════════════════════
-//  CATEGORIES
-// ═══════════════════════════════════════════════════════
-
 const categories = {
-  lead_capture: { label: "Lead Capture",                maxPoints: 20, color: "#0F4C5C" },
-  followup:     { label: "Follow-Up & Nurture",         maxPoints: 20, color: "#1a6b7f" },
-  referrals:    { label: "Referral Network",             maxPoints: 10, color: "#2d8a6e" },
-  renewals:     { label: "Renewals & Revenue Protection", maxPoints: 20, color: "#E36414" },
-  tools:        { label: "Tools & Data Ownership",       maxPoints: 30, color: "#B8860B" }
+  lead_capture: { label: "Lead Capture",                maxPoints: 20, color: "#00b8d4" },
+  followup:     { label: "Follow-Up & Nurture",         maxPoints: 20, color: "#00acc1" },
+  referrals:    { label: "Referral Network",             maxPoints: 10, color: "#0097a7" },
+  renewals:     { label: "Renewals & Revenue Protection", maxPoints: 20, color: "#00838f" },
+  tools:        { label: "Tools & Data Ownership",       maxPoints: 30, color: "#006064" }
 };
-
-// ═══════════════════════════════════════════════════════
-//  TIERS
-// ═══════════════════════════════════════════════════════
 
 const tiers = [
   {
@@ -428,25 +358,21 @@ const tiers = [
     id: "fragile", min: 50, max: 79,
     label: "Functional but Fragile",
     summary: "Things work when you're on top of them. But you are the system — and that doesn't scale. One busy week, one vacation, one new hire, and things start falling through the cracks.",
-    stat: "63%", statText: "of businesses at this stage report losing at least 2–3 clients per year simply because no one followed up in time."
+    stat: "63%", statText: "of businesses at this stage report losing at least 2\u20133 clients per year simply because no one followed up in time."
   },
   {
     id: "leaking", min: 25, max: 49,
     label: "Leaking Revenue",
     summary: "You're losing clients, referrals, and repeat business to disorganization. Not because you're bad at your job — because there's no system catching what you can't personally track. The upside from fixing this is significant.",
-    stat: "$38K – $185K", statText: "is the conservative annual upside most service businesses in this range recover after systematizing their operations."
+    stat: "$38K \u2013 $185K", statText: "is the conservative annual upside most service businesses in this range recover after systematizing their operations."
   },
   {
     id: "blind", min: 0, max: 24,
     label: "Flying Blind",
     summary: "You're running a business on memory and manual effort. Every lead, every referral, every repeat client depends on you remembering to act. The good news: the ROI on fixing this is massive — one recovered client likely pays for the entire system.",
-    stat: "5× more likely", statText: "to lose a client in the next 12 months. Businesses without any follow-up system lose clients at 5× the rate of those with even basic automation."
+    stat: "5\u00d7 more likely", statText: "to lose a client in the next 12 months. Businesses without any follow-up system lose clients at 5\u00d7 the rate of those with even basic automation."
   }
 ];
-
-// ═══════════════════════════════════════════════════════
-//  RECOMMENDATIONS (for gated detailed report)
-// ═══════════════════════════════════════════════════════
 
 const recommendations = {
   lead_capture: {
@@ -476,18 +402,8 @@ const recommendations = {
   }
 };
 
-
-// ═══════════════════════════════════════════════════════
-//  STATE
-// ═══════════════════════════════════════════════════════
-
 let currentQuestion = 0;
 let answers = {};
-
-
-// ═══════════════════════════════════════════════════════
-//  QUIZ FLOW
-// ═══════════════════════════════════════════════════════
 
 function startAudit() {
   document.getElementById('heroSection').classList.add('hidden');
@@ -516,10 +432,10 @@ function renderQuestion(index) {
       </div>
     </div>
     <div class="nav-buttons">
-      <button class="btn btn-secondary ${index === 0 ? 'hidden' : ''}" onclick="goBack()">← Back</button>
+      <button class="btn btn-secondary ${index === 0 ? 'hidden' : ''}" onclick="goBack()">\u2190 Back</button>
       <div></div>
       <button class="btn btn-primary" id="nextBtn" ${answers[q.id] === undefined ? 'disabled' : ''} onclick="goNext()">
-        ${index === questions.length - 1 ? 'See My Results →' : 'Next →'}
+        ${index === questions.length - 1 ? 'See My Results \u2192' : 'Next \u2192'}
       </button>
     </div>
   `;
@@ -562,11 +478,6 @@ function updateProgress(index) {
   document.getElementById('progressCategory').textContent = questions[index].category;
 }
 
-
-// ═══════════════════════════════════════════════════════
-//  RESULTS
-// ═══════════════════════════════════════════════════════
-
 function calculateScores() {
   const catScores = {};
   Object.keys(categories).forEach(k => catScores[k] = 0);
@@ -603,14 +514,12 @@ function showResults() {
   const tier = getTier(total);
   const weakest = getWeakestCategory(catScores);
 
-  // Score hero
   const heroEl = document.getElementById('scoreHero');
   heroEl.className = `score-hero tier-${tier.id}`;
   document.getElementById('scoreNumber').textContent = total;
   document.getElementById('scoreLabel').textContent = tier.label;
   document.getElementById('scoreSummary').textContent = tier.summary;
 
-  // Category bars
   const barsContainer = document.getElementById('categoryBars');
   barsContainer.innerHTML = '';
   Object.entries(categories).forEach(([key, cat]) => {
@@ -633,18 +542,14 @@ function showResults() {
     }, 300);
   });
 
-  // Stat callout
   document.getElementById('statBig').textContent = tier.stat;
   document.getElementById('statText').textContent = tier.statText;
 
-  // Store for report generation
   window._auditData = { total, catScores, tier, weakest };
 
-  // Show detailed report directly (no gate)
   document.getElementById('detailedReport').classList.add('active');
   generateDetailedReport();
 
-  // Update all CTA links to pass audit data to form
   const params = new URLSearchParams();
   params.set('score', total);
   params.set('tier', tier.label);
@@ -656,19 +561,6 @@ function showResults() {
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
-
-// ═══════════════════════════════════════════════════════
-//  GATE & WEBHOOK
-// ═══════════════════════════════════════════════════════
-
-// Gate removed — report shows directly after results.
-// Lead capture now happens on form.html
-
-
-// ═══════════════════════════════════════════════════════
-//  DETAILED REPORT
-// ═══════════════════════════════════════════════════════
 
 function generateDetailedReport() {
   const { total, catScores, tier, weakest } = window._auditData;
@@ -691,22 +583,21 @@ function generateDetailedReport() {
       return idx !== undefined ? q.options[idx].text : 'Not answered';
     });
 
-    const statusIcon = pct < 0.4 ? '⚠️ Needs attention' : pct < 0.7 ? '→ Room to improve' : '✓ Strong';
+    const statusIcon = pct < 0.4 ? '\u26a0\ufe0f Needs attention' : pct < 0.7 ? '\u2192 Room to improve' : '\u2713 Strong';
 
     const card = document.createElement('div');
     card.className = 'report-card';
     card.style.animationDelay = delay + 's';
     delay += 0.1;
     card.innerHTML = `
-      <div class="report-cat">${cat.label} — ${score}/${cat.maxPoints}</div>
+      <div class="report-cat">${cat.label} \u2014 ${score}/${cat.maxPoints}</div>
       <h4>${statusIcon}</h4>
-      <div class="your-answer">Your answers: "${answerTexts.join('" · "')}"</div>
+      <div class="your-answer">Your answers: \u201c${answerTexts.join('\u201d \u00b7 \u201c')}\u201d</div>
       <div class="recommendation">${rec}</div>
     `;
     reportContainer.appendChild(card);
   });
 
-  // Revenue impact
   let revLow, revHigh;
   if (total <= 24)      { revLow = 50000;  revHigh = 185000; }
   else if (total <= 49) { revLow = 38000;  revHigh = 120000; }
@@ -714,13 +605,11 @@ function generateDetailedReport() {
   else                  { revLow = 5000;   revHigh = 20000;  }
 
   document.getElementById('revNumber').textContent =
-    `$${(revLow/1000).toFixed(0)}K – $${(revHigh/1000).toFixed(0)}K / year`;
+    `$${(revLow/1000).toFixed(0)}K \u2013 $${(revHigh/1000).toFixed(0)}K / year`;
   document.getElementById('revText').textContent =
-    `Based on your score of ${total}/100, this is the conservative estimated annual revenue you could recover by systematizing your weakest areas — especially ${categories[weakest].label.toLowerCase()}.`;
+    `Based on your score of ${total}/100, this is the conservative estimated annual revenue you could recover by systematizing your weakest areas \u2014 especially ${categories[weakest].label.toLowerCase()}.`;
 }
 
-
-// ── Sticky progress shadow ──
 window.addEventListener('scroll', () => {
   const pw = document.getElementById('progressWrap');
   if (pw && !pw.classList.contains('hidden')) {
