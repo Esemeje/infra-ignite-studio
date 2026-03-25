@@ -1,5 +1,7 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/form", "destination": "/form.html" },
+    { "source": "/audit", "destination": "/dgt-system-audit-v2.html" },
+    { "source": "/((?!.*\\.html$)(?!.*\\..+$).*)", "destination": "/" }
   ]
 }
