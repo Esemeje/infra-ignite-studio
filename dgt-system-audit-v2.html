@@ -106,17 +106,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);lin
 .stat-callout .stat-big{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--accent2);margin-bottom:.25rem}
 .stat-callout p{font-size:.9rem;color:var(--muted);margin:0}
 
-/* ── Gate ── */
-.gate-section{background:var(--card);border:2px solid var(--accent);border-radius:16px;padding:2.25rem 2rem;text-align:center;margin-bottom:1.5rem}
-.gate-section h3{font-family:'Fraunces',serif;font-size:1.25rem;color:var(--accent);margin-bottom:.5rem}
-.gate-section p{font-size:.92rem;color:var(--muted);margin-bottom:1.5rem;max-width:440px;margin-left:auto;margin-right:auto}
-.gate-form{max-width:380px;margin:0 auto}
-.gate-input{display:block;width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.92rem;margin-bottom:.65rem;background:var(--bg);transition:border-color .2s;color:var(--text)}
-.gate-input:focus{outline:none;border-color:var(--accent)}
-.gate-input::placeholder{color:var(--light)}
-.gate-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238A8A8A' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6.5 6 6.5-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
-.gate-disclaimer{font-size:.75rem;color:var(--light);margin-top:.75rem}
-.gate-error{color:var(--red);font-size:.82rem;margin-bottom:.5rem;display:none}
 
 /* ── Detailed Report ── */
 .detailed-report{display:none}
@@ -210,31 +199,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);lin
       <p id="statText"></p>
     </div>
 
-    <!-- GATE -->
-    <div class="gate-section" id="gateSection">
-      <h3>Unlock your full report</h3>
-      <p>Get category-by-category recommendations, your estimated revenue impact, and a clear picture of what to fix first.</p>
-      <div class="gate-form">
-        <div class="gate-error" id="gateError"></div>
-        <input type="text" class="gate-input" id="gateName" placeholder="Your name" required>
-        <input type="email" class="gate-input" id="gateEmail" placeholder="Email address" required>
-        <input type="tel" class="gate-input" id="gatePhone" placeholder="Phone number (optional)">
-        <select class="gate-input gate-select" id="gateIndustry">
-          <option value="" disabled selected>Your industry</option>
-          <option value="real-estate">Real estate</option>
-          <option value="mortgage">Mortgage / lending</option>
-          <option value="insurance">Insurance</option>
-          <option value="financial">Financial services</option>
-          <option value="legal">Legal / accounting</option>
-          <option value="health">Health & wellness</option>
-          <option value="consulting">Consulting</option>
-          <option value="trades">Trades & contractors</option>
-          <option value="agency">Agency</option>
-          <option value="other">Other</option>
-        </select>
-        <button class="btn btn-cta" id="unlockBtn" onclick="unlockReport()">Unlock My Full Report →</button>
-        <p class="gate-disclaimer">No spam. We'll send your detailed results and one follow-up. That's it.</p>
-      </div>
+    <!-- CTA to form page -->
+    <div class="final-cta" id="midCta">
+      <h3>Want us to walk through your results?</h3>
+      <p>Book a free 30-minute discovery call. We'll review your audit together and show you exactly what to fix first — no pitch, no pressure.</p>
+      <a href="form.html" class="btn btn-cta" id="midCtaLink" style="display:inline-block;text-decoration:none;width:auto;padding:16px 48px">Book Your Discovery Call →</a>
     </div>
 
     <!-- DETAILED REPORT (gated) -->
@@ -671,6 +640,20 @@ function showResults() {
   // Store for report generation
   window._auditData = { total, catScores, tier, weakest };
 
+  // Show detailed report directly (no gate)
+  document.getElementById('detailedReport').classList.add('active');
+  generateDetailedReport();
+
+  // Update all CTA links to pass audit data to form
+  const params = new URLSearchParams();
+  params.set('score', total);
+  params.set('tier', tier.label);
+  params.set('weakest', categories[weakest].label);
+  const formUrl = `form.html?${params.toString()}`;
+  document.querySelectorAll('#midCtaLink, #finalCtaLink').forEach(link => {
+    if (link) link.href = formUrl;
+  });
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -679,103 +662,8 @@ function showResults() {
 //  GATE & WEBHOOK
 // ═══════════════════════════════════════════════════════
 
-async function unlockReport() {
-  const name     = document.getElementById('gateName').value.trim();
-  const email    = document.getElementById('gateEmail').value.trim();
-  const phone    = document.getElementById('gatePhone').value.trim();
-  const industry = document.getElementById('gateIndustry').value;
-  const errorEl  = document.getElementById('gateError');
-  const btn      = document.getElementById('unlockBtn');
-
-  // Validate
-  errorEl.style.display = 'none';
-  if (!name || !email) {
-    errorEl.textContent = 'Please enter your name and email.';
-    errorEl.style.display = 'block';
-    return;
-  }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    errorEl.textContent = 'Please enter a valid email address.';
-    errorEl.style.display = 'block';
-    return;
-  }
-
-  // Disable button while sending
-  btn.disabled = true;
-  btn.textContent = 'Unlocking...';
-
-  // ── Build lead payload ──
-  const { total, catScores, tier, weakest } = window._auditData;
-
-  const leadData = {
-    // Contact info
-    name,
-    email,
-    phone,
-    industry,
-
-    // Scores
-    total_score:       total,
-    tier:              tier.label,
-    weakest_category:  categories[weakest].label,
-
-    // Category breakdown (flat keys for easy Zapier mapping)
-    score_lead_capture:  catScores.lead_capture,
-    score_followup:      catScores.followup,
-    score_referrals:     catScores.referrals,
-    score_renewals:      catScores.renewals,
-    score_tools:         catScores.tools,
-
-    // Individual answers (question text + chosen answer)
-    ...Object.fromEntries(
-      questions.map(q => [
-        `q${q.id}_answer`,
-        answers[q.id] !== undefined ? q.options[answers[q.id]].text : ''
-      ])
-    ),
-
-    // Tracking
-    ...utmData,
-    page_url:  window.location.href,
-    timestamp: new Date().toISOString()
-  };
-
-  console.log('── LEAD CAPTURED ──');
-  console.log(JSON.stringify(leadData, null, 2));
-
-  // ── Send to Zapier ──
-  if (ZAPIER_WEBHOOK_URL) {
-    try {
-      await fetch(ZAPIER_WEBHOOK_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(leadData)
-      });
-      console.log('✓ Sent to Zapier');
-    } catch (err) {
-      console.warn('Zapier webhook failed:', err);
-      // Don't block the user — still show the report
-    }
-  }
-
-  // ── Show report ──
-  document.getElementById('gateSection').classList.add('hidden');
-  document.getElementById('detailedReport').classList.add('active');
-  generateDetailedReport();
-
-  // Update final CTA to pass audit data to form
-  const ctaLink = document.getElementById('finalCtaLink');
-  if (ctaLink) {
-    const params = new URLSearchParams();
-    params.set('score', total);
-    params.set('tier', tier.label);
-    params.set('weakest', categories[weakest].label);
-    ctaLink.href = `form.html?${params.toString()}`;
-  }
-
-  window.scrollTo({ top: document.getElementById('detailedReport').offsetTop - 80, behavior: 'smooth' });
-}
+// Gate removed — report shows directly after results.
+// Lead capture now happens on form.html
 
 
 // ═══════════════════════════════════════════════════════
