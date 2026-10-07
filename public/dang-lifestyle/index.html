@@ -148,6 +148,9 @@ section h2{font-size:clamp(28px, 3.8vw, 36px); font-style:italic}
 @keyframes rise{from{transform:translateY(6px); opacity:.2} to{transform:none; opacity:1}}
 @media (prefers-reduced-motion: reduce){ .msg,.choices,.summary{animation:none} .btn.pulse{animation:none; box-shadow:0 0 0 3px var(--sky)} .thread{scroll-behavior:auto} }
 
+.phonewrap{display:grid; gap:12px; justify-items:center; min-width:0; scroll-margin-top:16px}
+.channel{font-size:13.5px; color:var(--muted); max-width:384px; text-align:center}
+
 /* Safety */
 .safe{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:14px}
 .safe div{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; display:grid; gap:6px; align-content:start}
@@ -263,7 +266,7 @@ section h2{font-size:clamp(28px, 3.8vw, 36px); font-style:italic}
     <div class="solution">
       <p>Dang! already sends automated messages after a purchase.</p>
       <p>DGT Partner will build follow-ups that go further. Each one would be written around what the customer ordered and the skin concern they shared, and each would help keep customers coming back by helping them get results, reorder on time, find the next product that suits them, and bring a friend.</p>
-      <p>It would work in every market Dang! sells to.</p>
+      <p>It would be designed for every market Dang! sells to, starting with one.</p>
       <div class="legend">Look for these customer retention tags in the journey below:
         <span class="rt">Client Care</span><span class="rt">Repeat purchase</span><span class="rt">Cross-sell</span><span class="rt">Referral</span><span class="rt">Rewards</span>
       </div>
@@ -284,7 +287,7 @@ section h2{font-size:clamp(28px, 3.8vw, 36px); font-style:italic}
     </ol>
     <div class="stage">
       <div class="picker" id="picker" role="group" aria-label="Choose a sample customer"><div class="label">1. Choose a customer</div></div>
-      <div class="phone" aria-label="Sample message thread">
+      <div class="phonewrap"><div class="phone" aria-label="Sample message thread">
         <div class="screen">
           <div class="bar">
             <div class="avatar" aria-hidden="true">D!</div>
@@ -299,6 +302,8 @@ section h2{font-size:clamp(28px, 3.8vw, 36px); font-style:italic}
             <div class="count" id="count">Message 1 of 8</div>
           </div>
         </div>
+      </div>
+      <p class="channel">Shown here as messages. Follow-ups would arrive by email, with WhatsApp as an option, decided during the audit.</p>
       </div>
     </div>
   </section>
@@ -505,7 +510,7 @@ section h2{font-size:clamp(28px, 3.8vw, 36px); font-style:italic}
         {when:"When she’s running low", tag:"Repeat purchase", text:"Your 400ml moisturiser is likely running low. Want the same again?", cta:"Reorder",
          bts:{who:"Arrives when she’s likely to need more. Nothing for your team to do."}},
         {when:"After her reorder", tag:"Rewards", text:"Thank you for coming back, Ngozi. Your second order earned you rewards points toward your next treat.", cta:"See my points",
-         bts:{who:"Shows her real points balance from your rewards program."}}
+         bts:{who:"Shows her points balance from your rewards program, once we confirm it connects."}}
       ]
     },
     {
@@ -516,7 +521,7 @@ section h2{font-size:clamp(28px, 3.8vw, 36px); font-style:italic}
         {when:"Order shipped", existing:true, text:"Your Dang! order is on its way.",
          bts:{who:"Dang! already sends this. It stays as it is."}},
         {when:"Delivery day", tag:"Client Care", text:"Hi Tunde, your Body Glow Set has been delivered. We hope it’s a hit.",
-         bts:{who:"Marked as a gift, so Tunde gets no skincare check-ins."}},
+         bts:{who:"Treated as a gift order, so Tunde gets no skincare check-ins."}},
         {when:"A week later", tag:"Consultation", text:"Thank you for choosing Dang! for a gift. If you’d like something for your own skin, our aestheticians offer free virtual consultations.", cta:"Book a free consultation",
          bts:{who:"Turns a one-time gift buyer into a customer in his own right. Bookings land in your aestheticians’ calendar."}},
         {when:"Before her next birthday", tag:"Repeat purchase", text:"Last October you sent a Body Glow Set. Her birthday is coming up again. Here are this season’s gift sets.", cta:"Shop gift sets",
@@ -542,7 +547,7 @@ section h2{font-size:clamp(28px, 3.8vw, 36px); font-style:italic}
     b.querySelector(".k").textContent = c.key;
     b.querySelector(".n").textContent = c.name + " · " + c.item;
     b.querySelector(".d").textContent = c.detail;
-    b.addEventListener("click", () => { ci = i; reset(); });
+    b.addEventListener("click", () => { ci = i; reset(); place(true); });
     picker.appendChild(b);
   });
   const how = document.createElement("div");
@@ -646,6 +651,19 @@ section h2{font-size:clamp(28px, 3.8vw, 36px); font-style:italic}
     render(false); thread.scrollTop = 0;
   }
 
+  const stage = document.querySelector(".stage"), wrap = document.querySelector(".phonewrap");
+  const narrow = window.matchMedia("(max-width:860px)");
+  function place(scroll){
+    if (narrow.matches){ document.getElementById("cust-" + ci).after(wrap); }
+    else if (wrap.parentElement !== stage){ stage.appendChild(wrap); }
+    if (scroll){
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      wrap.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: narrow.matches ? "start" : "nearest"});
+    }
+  }
+  if (narrow.addEventListener) narrow.addEventListener("change", () => place(false));
+  else if (narrow.addListener) narrow.addListener(() => place(false));
+
   nextBtn.addEventListener("click", () => { nextBtn.classList.remove("pulse"); shown++; render(true); });
   restartBtn.addEventListener("click", reset);
 
@@ -657,6 +675,7 @@ section h2{font-size:clamp(28px, 3.8vw, 36px); font-style:italic}
   });
 
   reset();
+  place(false);
 
   (function(){
     const cust = document.getElementById("c-cust"), aov = document.getElementById("c-aov");
